@@ -1,0 +1,83 @@
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menu.xhtml">
+	<ui:define name="corpo">
+
+		<h:form>
+			<div class="content-wrapper" id="div-corpo">
+				<div class="col-3FuscaA1">
+					<h:outputLabel value="PROVAS REALIZADAS" />
+				</div>
+				<div class="col-6">
+					<h:outputLabel value="PERÍODO" class="col-1FuscaA" />
+					<h:inputText value="" id="campoFusca" class="col-4Fus" />
+					<h:outputLabel value="A" class="col-1FuscaA" />
+					<h:inputText value="" id="campoFusca1" class="col-4Fus1" />
+					<h:commandButton class="btn btn-danger15" value="INCLUIR"
+						id="botaoAva" />
+				</div>
+				<div>
+					<table class="table table-inverse text-center" id="tableFusca">
+						<tr>
+							<th class="text-center">Nome ↑↓</th>
+							<th class="text-center">Avaliador ↑↓</th>
+							<th class="text-center">Data ↑↓</th>
+							<th class="text-center">SLA ↑↓</th>
+							<th class="text-center">Download</th>
+						</tr>
+						<tr>
+							<td>Sartamo Obanko</td>
+							<td>Wagner Fusca</td>
+							<td>2001-01-01</td>
+							<td>2</td>
+							<td><h:commandLink>
+									<h:graphicImage value="img/download-button.png" width="8%" />
+								</h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Saimo Koreno</td>
+							<td>Wagner Fusca</td>
+							<td>2001-05-05</td>
+							<td>1</td>
+							<td><h:commandLink>
+									<h:graphicImage value="img/download-button.png" width="8%" />
+								</h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Fujimo Nakombi</td>
+							<td>Wagner Fusca</td>
+							<td>2002-02-02</td>
+							<td>-1</td>
+							<td><h:commandLink>
+									<h:graphicImage value="img/download-button.png" width="8%" />
+								</h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Osguarda Pararo</td>
+							<td>Wagner Fusca</td>
+							<td>2005-04-04</td>
+							<td>0</td>
+							<td><h:commandLink>
+									<h:graphicImage value="img/download-button.png" width="8%" />
+								</h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Katamo Osnique</td>
+							<td>Wagner Fusca</td>
+							<td>2005-03-03</td>
+							<td>-6</td>
+							<td><h:commandLink>
+									<h:graphicImage value="img/download-button.png" width="8%" />
+								</h:commandLink></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<script
+				src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<script src="js/ordena-tabela.js"></script>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
