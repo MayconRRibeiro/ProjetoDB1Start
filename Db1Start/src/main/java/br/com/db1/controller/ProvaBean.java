@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.ProvaDao;
+import br.com.db1.model.Avaliador;
 import br.com.db1.model.Prova;
 
 @ApplicationScoped
@@ -30,6 +31,8 @@ public class ProvaBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.prova= new Prova();
+
 	}
 
 	private void zerarLista() {
@@ -79,14 +82,14 @@ public class ProvaBean {
 		} else {
 			adicionarMensagem("Prova salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			nomeProvaFiltrado = this.prova.getNome();
-			listarProva();
+			this.prova = new Prova();
 		}
 		return "prova";
 	}
 
 	public String editar(Prova prova) {
 		this.prova = dao.findById(prova.getId());
-		return "cadastrarCidade";
+		return "cadastrarProva";
 	}
 
 	public String remover(Prova prova) {

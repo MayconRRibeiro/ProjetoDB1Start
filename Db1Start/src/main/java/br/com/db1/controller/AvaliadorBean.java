@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -15,7 +14,7 @@ import javax.inject.Named;
 import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.model.Avaliador;
 
-@RequestScoped
+@ApplicationScoped
 @Named
 public class AvaliadorBean {
 
@@ -31,6 +30,7 @@ public class AvaliadorBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.avaliador = new Avaliador();
 	}
 
 	private void zerarLista() {
@@ -83,19 +83,18 @@ public class AvaliadorBean {
 	}
 
 	public String salvar() {
-		System.out.println("entrei no save porra");
-		if(dao == null) {System.out.println("esta merda ta vazia");}
 		if (!dao.save(this.avaliador)) {
 			adicionarMensagem("Erro ao cadastrar o avaliador.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-		}
+			this.avaliador = new Avaliador();
+		}		
 		return "avaliador";
 	}
 
 	public String editar(Avaliador avaliador) {
 		this.avaliador = dao.findById(avaliador.getId());
-		return "cadastrarCidade";
+		return "cadastrarAvaliador";
 	}
 
 	public String remover(Avaliador avaliador) {

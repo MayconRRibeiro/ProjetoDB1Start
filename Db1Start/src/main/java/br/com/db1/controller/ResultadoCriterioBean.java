@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.ResultadoCriterioDao;
+import br.com.db1.model.Avaliador;
 import br.com.db1.model.ResultadoCriterio;
 
 @ApplicationScoped
@@ -30,6 +31,8 @@ public class ResultadoCriterioBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.resultadoCriterio= new ResultadoCriterio();
+
 	}
 
 	private void zerarLista() {
@@ -78,15 +81,14 @@ public class ResultadoCriterioBean {
 			adicionarMensagem("Erro ao cadastrar o resultadoCriterio.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("ResultadoCriterio salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeResultadoCriterioFiltrado = this.resultadoCriterio.getResultado();
-			listarResultadoCriterio();
+			this.resultadoCriterio = new ResultadoCriterio();
 		}
 		return "resultadoCriterio";
 	}
 
 	public String editar(ResultadoCriterio resultadoCriterio) {
 		this.resultadoCriterio = dao.findById(resultadoCriterio.getId());
-		return "cadastrarCidade";
+		return "cadastrarCriterio";
 	}
 
 	public String remover(ResultadoCriterio resultadoCriterio) {

@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.CriterioDao;
+import br.com.db1.model.Avaliador;
 import br.com.db1.model.Criterio;
 
 @ApplicationScoped
@@ -30,6 +31,8 @@ public class CriterioBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.criterio = new Criterio();
+
 	}
 
 	private void zerarLista() {
@@ -79,14 +82,14 @@ public class CriterioBean {
 		} else {
 			adicionarMensagem("Criterio salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			nomeCriterioFiltrado = this.criterio.getDescricao();
-			listarCriterio();
+			this.criterio = new Criterio();
 		}
 		return "criterio";
 	}
 
 	public String editar(Criterio criterio) {
 		this.criterio = dao.findById(criterio.getId());
-		return "cadastrarCidade";
+		return "cadastrarCriterio";
 	}
 
 	public String remover(Criterio criterio) {

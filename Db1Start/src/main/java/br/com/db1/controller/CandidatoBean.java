@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.CandidatoDao;
+import br.com.db1.model.Avaliador;
 import br.com.db1.model.Candidato;
 
 @ApplicationScoped
@@ -30,6 +31,7 @@ public class CandidatoBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.candidato = new Candidato();
 	}
 
 	private void zerarLista() {
@@ -78,15 +80,14 @@ public class CandidatoBean {
 			adicionarMensagem("Erro ao cadastrar o candidato.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Candidato salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeCandidatoFiltrado = this.candidato.getNome();
-			listarCandidato();
+			this.candidato = new Candidato();
 		}
 		return "candidato";
 	}
 
 	public String editar(Candidato candidato) {
 		this.candidato = dao.findById(candidato.getId());
-		return "cadastrarCidade";
+		return "cadastrarCandidato";
 	}
 
 	public String remover(Candidato candidato) {

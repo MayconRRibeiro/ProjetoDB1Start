@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.TipoAvaliacaoDao;
+import br.com.db1.model.Avaliador;
 import br.com.db1.model.TipoAvaliacao;
 
 @ApplicationScoped
@@ -30,6 +31,8 @@ public class TipoAvaliacaoBean {
 	@PostConstruct
 	public void init() {
 		zerarLista();
+		this.tipoAvaliacao = new TipoAvaliacao();
+
 	}
 
 	private void zerarLista() {
@@ -78,15 +81,14 @@ public class TipoAvaliacaoBean {
 			adicionarMensagem("Erro ao cadastrar o tipoAvaliacao.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("TipoAvaliacao salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeTipoAvaliacaoFiltrado = this.tipoAvaliacao.getNome();
-			listarTipoAvaliacao();
+			this.tipoAvaliacao = new TipoAvaliacao();
 		}
 		return "tipoAvaliacao";
 	}
 
 	public String editar(TipoAvaliacao tipoAvaliacao) {
 		this.tipoAvaliacao = dao.findById(tipoAvaliacao.getId());
-		return "cadastrarCidade";
+		return "cadastrarAvaliacao";
 	}
 
 	public String remover(TipoAvaliacao tipoAvaliacao) {

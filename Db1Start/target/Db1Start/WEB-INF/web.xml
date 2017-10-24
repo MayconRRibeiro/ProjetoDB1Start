@@ -17,7 +17,9 @@
 		<filter-name>LoginFilter</filter-name>
 		<url-pattern>/logado/*</url-pattern>
 	</filter-mapping>
-
+	<listener>
+		<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+	</listener>
 	<servlet>
 		<servlet-name>FacesServlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
