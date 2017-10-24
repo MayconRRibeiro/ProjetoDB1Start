@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,6 +15,7 @@ import javax.inject.Named;
 import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.model.Avaliador;
 
+@ManagedBean
 @ApplicationScoped
 @Named
 public class AvaliadorBean {
@@ -25,7 +27,7 @@ public class AvaliadorBean {
 
 	private String nomeAvaliadorFiltrado;
 
-	private Avaliador avaliador;
+	private Avaliador avaliador = new Avaliador();
 
 	@PostConstruct
 	public void init() {
@@ -60,6 +62,14 @@ public class AvaliadorBean {
 		this.list = list;
 	}
 
+	public String getNomeAvaliadorFiltrado() {
+		return nomeAvaliadorFiltrado;
+	}
+
+	public void setNomeAvaliadorFiltrado(String nomeAvaliadorFiltrado) {
+		this.nomeAvaliadorFiltrado = nomeAvaliadorFiltrado;
+	}
+
 	public Avaliador getAvaliador() {
 		return avaliador;
 	}
@@ -78,10 +88,8 @@ public class AvaliadorBean {
 			adicionarMensagem("Erro ao cadastrar o avaliador.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeAvaliadorFiltrado = this.avaliador.getNome();
-			listarAvaliador();
 		}
-		return "cidade";
+		return "avaliador";
 	}
 
 	public String editar(Avaliador avaliador) {

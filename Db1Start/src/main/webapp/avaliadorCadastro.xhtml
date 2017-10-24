@@ -1,5 +1,5 @@
 
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" 
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menu.xhtml">
 	<ui:define name="corpo">
@@ -13,15 +13,17 @@
 				</div>
 				<div class="col-6">
 					<h:outputLabel value="NOME:" for="campo-nome" class="col-2AvaT" />
-					<h:inputText value="" id="campoAva" class="col-4Ava" />
+					<h:inputText value="#{avaliadorBean.avaliador.nome}"
+						id="campo-nome" required="true" />
 				</div>
 				<div class="col-6">
 					<h:outputLabel value="EMAIL:" for="campo-email" class="col-2AvaT" />
-					<h:inputText value="" id="campoAva2" class="col-4Ava" />
+					<h:inputText value="#{avaliadorBean.avaliador.email}"
+						id="campo-email" required="true" />
 				</div>
 				<div class="col-6">
 					<h:commandButton class="btn btn-danger3" value="SALVAR"
-						id="botaoAva" action="#{avaliadorBean.novo}"/>
+						process="@this" id="botaoAva" action="#{avaliadorBean.salvar}" />
 				</div>
 			</div>
 		</h:form>
