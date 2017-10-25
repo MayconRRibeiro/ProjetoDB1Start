@@ -16,17 +16,17 @@ public class ResultadoCriterioDao implements DAO<ResultadoCriterio> {
 	private EntityManager manager;
 
 	public List<ResultadoCriterio> findAll() {
-		return manager.createQuery("Select r from resultadoCriterio r").getResultList();
+		return manager.createQuery("Select r from ResultadoCriterio r").getResultList();
 	}
 
 	public ResultadoCriterio findById(Long id) {
-		Query query = manager.createQuery("Select r from resultadoCriterio r where r.id = :pId");
+		Query query = manager.createQuery("Select r from ResultadoCriterio r where r.id = :pId");
 		query.setParameter("pId", id);
 		return (ResultadoCriterio) query.getSingleResult();
 	}
 
 	public List<ResultadoCriterio> findByName(String nome) {
-		Query query = manager.createQuery("Select r from resultadoCriterio r where r.nome like :pNome");
+		Query query = manager.createQuery("Select r from ResultadoCriterio r where r.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

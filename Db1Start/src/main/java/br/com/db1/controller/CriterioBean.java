@@ -32,7 +32,7 @@ public class CriterioBean {
 	public void init() {
 		zerarLista();
 		this.criterio = new Criterio();
-
+		this.nomeCriterioFiltrado = "";
 	}
 
 	private void zerarLista() {

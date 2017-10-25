@@ -17,17 +17,17 @@ public class TipoAvaliacaoDao implements DAO<TipoAvaliacao> {
 	private EntityManager manager;
 
 	public List<TipoAvaliacao> findAll() {
-		return manager.createQuery("Select t from tipoAvaliacao t").getResultList();
+		return manager.createQuery("Select t from TipoAvaliacao t").getResultList();
 	}
 
 	public TipoAvaliacao findById(Long id) {
-		Query query = manager.createQuery("Select t from tipoAvaliacao t where t.id = :pId");
+		Query query = manager.createQuery("Select t from TipoAvaliacao t where t.id = :pId");
 		query.setParameter("pId", id);
 		return (TipoAvaliacao) query.getSingleResult();
 	}
 
 	public List<TipoAvaliacao> findByName(String nome) {
-		Query query = manager.createQuery("Select t from tipoAvaliacao t where t.nome like :pNome");
+		Query query = manager.createQuery("Select t from TipoAvaliacao t where t.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

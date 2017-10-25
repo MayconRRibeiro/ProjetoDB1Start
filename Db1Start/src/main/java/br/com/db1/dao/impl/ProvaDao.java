@@ -16,17 +16,17 @@ public class ProvaDao implements DAO<Prova> {
 	private EntityManager manager;
 
 	public List<Prova> findAll() {
-		return manager.createQuery("Select p from prova p").getResultList();
+		return manager.createQuery("Select p from Prova p").getResultList();
 	}
 
 	public Prova findById(Long id) {
-		Query query = manager.createQuery("Select p from prova p where p.id = :pId");
+		Query query = manager.createQuery("Select p from Prova p where p.id = :pId");
 		query.setParameter("pId", id);
 		return (Prova) query.getSingleResult();
 	}
 
 	public List<Prova> findByName(String nome) {
-		Query query = manager.createQuery("Select p from prova p where p.nome like :pNome");
+		Query query = manager.createQuery("Select p from Prova p where p.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

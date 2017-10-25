@@ -1,29 +1,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>BootsFaces Basic Page</title>
+</h:head>
+<h:body>
 
-<ui:composition template="menu.xhtml">
-	<ui:define name="corpo">
+	<h:form>
+		<div class="content-wrapper" id="div-corpo">
 
+			<h:commandButton class="btn" value="Filtrar"
+				action="#{avaliadorBean.listarAvaliador}" />
+			<h:form>
+				<b:dataTable value="#{avaliadorBean.list}" var="car" select="true"
+					selectionMode="single" onorder="console.log('order');"
+					onpage="console.log('page');" onsearch="console.log('search');">
+					<b:dataTableColumn value="#{car.id}" />
+					<b:dataTableColumn value="#{car.nome}" />
+					<b:dataTableColumn value="#{car.email}" />
+				</b:dataTable>
+			</h:form>
 
-		<h:form>
-			<div class="content-wrapper" id="div-corpo">
-
-				<h:commandButton class="btn" value="Filtrar"
-						action="#{avaliadorBean.listarAvaliador}" />
-				<h:form>
-					<b:dataTable value="#{avaliadorBean.list}" rendered="#{not empty avaliadorBean.list}" var="car">
-						<b:dataTableColumn value="#{car.id}" />
-						<b:dataTableColumn value="#{car.nome}" />
-						<b:dataTableColumn value="#{car.email}" />
-					</b:dataTable>
-				</h:form>
-
-			</div>
-		</h:form>
-	</ui:define>
-
-</ui:composition>
+		</div>
+	</h:form>
+</h:body>
 </html>

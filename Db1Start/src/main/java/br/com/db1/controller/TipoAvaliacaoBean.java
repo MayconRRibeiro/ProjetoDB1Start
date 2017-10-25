@@ -32,7 +32,7 @@ public class TipoAvaliacaoBean {
 	public void init() {
 		zerarLista();
 		this.tipoAvaliacao = new TipoAvaliacao();
-
+		this.nomeTipoAvaliacaoFiltrado = "";
 	}
 
 	private void zerarLista() {

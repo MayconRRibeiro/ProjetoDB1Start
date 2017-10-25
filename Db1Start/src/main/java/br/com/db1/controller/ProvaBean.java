@@ -32,6 +32,7 @@ public class ProvaBean {
 	public void init() {
 		zerarLista();
 		this.prova= new Prova();
+		this.nomeProvaFiltrado = "";
 
 	}
 
