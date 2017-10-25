@@ -16,17 +16,17 @@ public class CandidatoDao implements DAO<Candidato> {
 	private EntityManager manager;
 
 	public List<Candidato> findAll() {
-		return manager.createQuery("Select c from candidato c").getResultList();
+		return manager.createQuery("Select c from Candidato c").getResultList();
 	}
 
 	public Candidato findById(Long id) {
-		Query query = manager.createQuery("Select c from candidato c where c.id = :pId");
+		Query query = manager.createQuery("Select c from Candidato c where c.id = :pId");
 		query.setParameter("pId", id);
 		return (Candidato) query.getSingleResult();
 	}
 
 	public List<Candidato> findByName(String nome) {
-		Query query = manager.createQuery("Select c from candidato c where c.nome like :pNome");
+		Query query = manager.createQuery("Select c from Candidato c where c.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

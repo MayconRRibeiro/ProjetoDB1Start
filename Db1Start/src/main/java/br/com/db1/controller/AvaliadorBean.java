@@ -89,7 +89,7 @@ public class AvaliadorBean {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.avaliador = new Avaliador();
 		}		
-		return "avaliador";
+		return "listaAvaliadores";
 	}
 
 	public String editar(Avaliador avaliador) {

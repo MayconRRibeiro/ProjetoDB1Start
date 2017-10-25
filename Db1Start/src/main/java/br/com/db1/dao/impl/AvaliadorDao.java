@@ -16,18 +16,24 @@ public class AvaliadorDao implements DAO<Avaliador> {
 	private EntityManager manager;
 
 	public List<Avaliador> findAll() {
-		return manager.createQuery("Select a from avaliador a").getResultList();
+		return manager.createQuery("Select a from Avaliador a").getResultList();
 	}
 
 	public Avaliador findById(Long id) {
-		Query query = manager.createQuery("Select a from avaliador a where a.id = :pId");
+		Query query = manager.createQuery("Select a from Avaliador a where a.id = :pId");
 		query.setParameter("pId", id);
 		return (Avaliador) query.getSingleResult();
 	}
 
 	public List<Avaliador> findByName(String nome) {
-		Query query = manager.createQuery("Select a from avaliador a where a.nome like :pNome");
+		Query query = manager.createQuery("Select a from Avaliador a where a.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
+		return query.getResultList();
+	}
+	
+	public List<Avaliador> findByTipo(String tipo) {
+		Query query = manager.createQuery("Select a from Avaliador a where a.tipo like :pTipo");
+		query.setParameter("pTipo", "%" + tipo + "%");
 		return query.getResultList();
 	}
 

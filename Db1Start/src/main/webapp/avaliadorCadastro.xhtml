@@ -2,8 +2,8 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-	
-<ui:composition  template="menu.xhtml">
+
+<ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
 
 
@@ -23,6 +23,7 @@
 					<h:inputText value="#{avaliadorBean.avaliador.email}"
 						id="campo-email" required="true" />
 				</div>
+
 				<div class="col-6">
 					<h:commandButton class="btn btn-danger3" value="SALVAR"
 						id="botaoAva" action="#{avaliadorBean.salvar}" />
