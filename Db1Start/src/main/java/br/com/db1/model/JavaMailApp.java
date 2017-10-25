@@ -22,16 +22,22 @@ public class JavaMailApp {
 		props.put("mail.smtp.port", "587");
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("-----------", "---------------");
+				return new PasswordAuthentication("", "");
 			}
 		});
 		session.setDebug(true);
 		try {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("hiago_luvizutto@hotmail.com")); 
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(""));
-			message.setSubject("Enviando email com JavaMail");
-			message.setText("SYSOUT TECH É SHOW!!!!");
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("hiagoluvizutto@gmail.com"));
+			message.setSubject("Notificação sistema de avaliação");
+			if (usuario="rh"){
+				message.setText("AAAAAAAAAAAAAA");
+			} 
+			else {
+				message.setText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			}
+			
 			Transport.send(message);
 			System.out.println("Feito!!!");
 		} catch (MessagingException e) {
