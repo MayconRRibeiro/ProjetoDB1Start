@@ -13899,7 +13899,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .col-4Cand3 {
-	margin-left: 42px;
+	margin-left: 44px;
 	width: 220px;
 	min-height: 1px;
 	padding-right: 15px;
@@ -13907,7 +13907,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .col-4Cand2 {
-	margin-left: 18px;
+	margin-left: 23px;
 	width: 220px;
 	min-height: 1px;
 	padding-right: 15px;
@@ -13915,7 +13915,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .col-4Cand4 {
-	margin-left: 55px;
+	margin-left: 59px;
 	width: 220px;
 	min-height: 1px;
 	padding-right: 15px;
@@ -13966,14 +13966,14 @@ a.text-dark:focus, a.text-dark:hover {
 
 .btn-danger55 {
 	font-family: Arial, Helvetica, Sans-Serif;
-	font-size: 100%;
+	font-size: 23px !important;
 	color: #fff;
 	background-color: #FF0000;
 	border-color: #FF0000;
-	margin-left: 500px;
-	margin-top: 229px;
-	width: 185px;
-	height: 70px;
+	margin-left: 850px;
+	margin-top: 190px;
+	width: 180px;
+	height: 65px;
 }
 
 .botaoAva {
