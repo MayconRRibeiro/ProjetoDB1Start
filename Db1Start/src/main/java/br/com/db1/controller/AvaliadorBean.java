@@ -22,7 +22,7 @@ public class AvaliadorBean {
 	private AvaliadorDao dao;
 
 	private List<Avaliador> list;
-
+	
 	private String nomeAvaliadorFiltrado;
 
 	private Avaliador avaliador;
@@ -32,7 +32,7 @@ public class AvaliadorBean {
 		zerarLista();
 		this.avaliador = new Avaliador();
 	}
-
+	
 	private void zerarLista() {
 		list = new ArrayList<Avaliador>();
 	}

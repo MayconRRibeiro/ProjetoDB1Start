@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="menu.xhtml">
+	<ui:define name="corpo">
+
+
+		<h:form>
+			<div class="content-wrapper" id="div-corpo">
+
+				<h:commandButton class="btn" value="Filtrar"
+						action="#{avaliadorBean.listarAvaliador}" />
+				<h:form>
+					<b:dataTable value="#{avaliadorBean.list}" rendered="#{not empty avaliadorBean.list}" var="car">
+						<b:dataTableColumn value="#{car.id}" />
+						<b:dataTableColumn value="#{car.nome}" />
+						<b:dataTableColumn value="#{car.email}" />
+					</b:dataTable>
+				</h:form>
+
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
