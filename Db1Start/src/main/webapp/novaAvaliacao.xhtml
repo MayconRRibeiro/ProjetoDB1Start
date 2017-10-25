@@ -1,0 +1,36 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menu.xhtml">
+	<link rel="stylesheet" type="text/css" href="bootstrap2.css" />
+
+	<ui:define name="corpo">
+		<h:form>
+			<div class="content-wrapper" id="div-corpo">
+				<div class="col-6Tipo">
+					<h:outputLabel class="titulo" value="NOVA AVALIAÇÃO" />
+				</div>
+				<div class="col-6">
+					<h:outputLabel value="CANDIDATO:" for="campo-email"
+						class="col-2AvaT" />
+					<h:inputText id="campo-email" required="true" />
+				</div>
+				<div class="col-6">
+					<h:outputLabel value="TIPO PROVA:" for="campo-email"
+						class="col-2AvaT" />
+					<h:inputText id="campo-prova" required="true" />
+				</div>
+				<div class="col-6">
+					<h:outputLabel value="AVALIADOR:" for="campo-email"
+						class="col-2AvaT" />
+					<h:inputText id="campo-avaliador" required="true" />
+				</div>
+				<div class="col-8">
+					<h:outputLabel value="AVALIAÇÃO:" for="campo-arquivo" />
+						<h:inputFile class="labeltest" id="campo-arquivo" required="true" label="AVALIAÇÃO:"
+							requiredMessage="Arquivo não selecionado" />
+						<h:message for="campo-arquivo" style="color:red" />
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

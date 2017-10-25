@@ -1,6 +1,6 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menu2.xhtml">
+	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menuRh.xhtml">
 	<link rel="stylesheet" type="text/css" href="bootstrap2.css" />
 	<link href="css/sb-admin.css" rel="stylesheet" />
 
@@ -12,68 +12,62 @@
 				</div>
 					<table class="table table-inverse text-center">
 						<tr>
-							<th class="text-center">Avaliação   ↑↓</th>
+							<th class="text-center">Nome ↑↓</th>
+							<th class="text-center">Avaliador   ↑↓</th>
 							<th class="text-center">Data   ↑↓</th>
 							<th class="text-center">SLA   ↑↓</th>
 							<th class="text-center">Download</th>
-							<th class="text-center">Correção</th>
 						</tr>
 						<tr>
-							<td>01</td>
+							<td>Sartamo Obanko</td>
+							<td>Wagner Fusca</td>
 							<td>2001-01-01</td>
 							<td>2</td>
 							<td>
 							<h:commandLink><h:graphicImage value="img/download-button.png" width="8%" /></h:commandLink>
 							</td>
-							<td>
-							<h:commandLink><h:graphicImage value="img/right-arrow.png" width="9%" /></h:commandLink>
-							</td>
 						</tr>
 						<tr>
-							<td>02</td>
+							<td>Saimo Koreno</td>
+							<td>Wagner Fusca</td>
 							<td>2001-05-05</td>
 							<td>1</td>
 							<td>
 							<h:commandLink><h:graphicImage value="img/download-button.png" width="8%" /></h:commandLink>
 							</td>
-							<td>
-							<h:commandLink><h:graphicImage value="img/right-arrow.png" width="9%" /></h:commandLink>
-							</td>
 						</tr>
 						<tr>
-							<td>03</td>
+							<td>Fujimo Nakombi</td>
+							<td>Wagner Fusca</td>
 							<td>2002-02-02</td>
 							<td>-1</td>
 							<td>
 							<h:commandLink><h:graphicImage value="img/download-button.png" width="8%" /></h:commandLink>
 							</td>
-							<td>
-							<h:commandLink><h:graphicImage value="img/right-arrow.png" width="9%" /></h:commandLink>
-							</td>
 						</tr>
 						<tr>
-							<td>04</td>
+							<td>Osguarda Pararo</td>
+							<td>Wagner Fusca</td>
 							<td>2005-04-04</td>
 							<td>0</td>
 							<td>
 							<h:commandLink><h:graphicImage value="img/download-button.png" width="8%" /></h:commandLink>
 							</td>
-							<td>
-							<h:commandLink><h:graphicImage value="img/right-arrow.png" width="9%" /></h:commandLink>
-							</td>
 						</tr>
 						<tr>
-							<td>05</td>
+							<td>Katamo Osnique</td>
+							<td>Wagner Fusca</td>
 							<td>2005-03-03</td>
 							<td>-6</td>
 							<td>
 							<h:commandLink><h:graphicImage value="img/download-button.png" width="8%" /></h:commandLink>
 							</td>
-							<td>
-							<h:commandLink><h:graphicImage value="img/right-arrow.png" width="9%" /></h:commandLink>
-							</td>
 						</tr>
 					</table>
+					<div class="botoes-relatorios">
+					<h:commandButton class="btn btn-danger11" value="PROVAS" id="botao-provas" action="relatorios.xhtml"/>
+					<h:commandButton class="btn btn-danger12" value="RESULTADOS" id="botao-resultados" action="resultados.xhtml" />
+					</div>
 					
 			</div>
 				<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

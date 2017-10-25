@@ -51,4 +51,13 @@ public class Avaliador {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public List<Prova> getProvas() {
+		return provas;
+	}
+
+	public void setProvas(List<Prova> provas) {
+		this.provas = provas;
+	}
+
 }

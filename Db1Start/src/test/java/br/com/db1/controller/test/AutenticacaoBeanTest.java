@@ -22,4 +22,7 @@ public class AutenticacaoBeanTest {
 		autenticacao.setSenha("corinthians");
 		Assert.assertFalse(autenticacao.getSenha() == AutenticacaoBean.getSenhaCorreta());
 	}
+	public void testeRegistrarSaida() {
+		Assert.assertEquals(autenticacao.registraSaida(),"/redirect");
+	}
 }
