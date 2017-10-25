@@ -14280,7 +14280,17 @@ button#botaoAva {
 table {
 	margin-top: 20px;
 }
-
+input[type='file'] {
+  display: none
+}
+.labeltest {
+  background-color: #ff0000;
+  border-radius: 5px;
+  color: #ff0000;
+  cursor: pointer;
+  margin: 10px;
+  padding: 6px 20px
+}
 
 
 
