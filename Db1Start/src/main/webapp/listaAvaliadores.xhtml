@@ -14,17 +14,6 @@
 					<h:commandButton class="btn btn-danger5" value="INCLUIR"
 						id="botaoAva" action="avaliadorCadastro.xhtml" />
 				</div>
-				<h:form>
-					<b:dataTable value="#{carPool.carPool}" var="car">
-						<b:dataTableColumn value="#{car.brand}" />
-						<b:dataTableColumn value="#{car.type}" />
-						<b:dataTableColumn value="#{car.color}" />
-						<b:dataTableColumn value="#{car.year}" order="asc" />
-						<b:dataTableColumn value="#{car.price}" />
-						<b:dataTableColumn value="#{car.enginePower}"
-							label="Engine Power (hp)" />
-					</b:dataTable>
-				</h:form>
 			</div>
 		</h:form>
 	</ui:define>

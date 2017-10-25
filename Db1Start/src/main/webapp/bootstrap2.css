@@ -14235,6 +14235,51 @@ button#botaoAva {
 	background-color:rgba(33,37,41,0.8);
 	color: #FFF;
 }
+.btn-danger15 {
+	margin-left: 20px;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 15px !important;
+	border-radius: 4px;
+	color: #fff;
+	background-color: #FF0000;
+	border-color: #00FF00;
+	width: 85px;
+	height: 34px;
+}
+
+.col-4Fus {
+	font-family: Arial, Helvetica, Sans-Serif;
+	width: 90px;
+	height: 30px !important;
+	font-size: 14px;
+	margin-top: 1px;
+	margin-left: 22px;
+	height: 20px;
+}
+
+.col-4Fus1 {
+	font-family: Arial, Helvetica, Sans-Serif;
+	width: 90px;
+	height: 30px !important;
+	font-size: 14px;
+	margin-top: 1px;
+	margin-left: 22px;
+	height: 20px;
+}
+
+.col-1FuscaA {
+	margin-left: 22px;
+}
+
+.col-3FuscaA1 {
+	font-size: 35px;
+	margin-left: 35px;
+	margin-top: 16px;
+}
+
+table {
+	margin-top: 20px;
+}
 
 
 
