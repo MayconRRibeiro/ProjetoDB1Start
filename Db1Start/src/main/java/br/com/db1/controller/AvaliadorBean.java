@@ -91,12 +91,14 @@ public class AvaliadorBean {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.avaliador = new Avaliador();
 		}		
-		return "listaAvaliadores";
+		listarAvaliador();
+		return "avaliadorCadastro";
 	}
 
 	public String editar(Avaliador avaliador) {
 		this.avaliador = dao.findById(avaliador.getId());
-		return "cadastrarAvaliador";
+		listarAvaliador();
+		return "avaliadorCadastro";
 	}
 
 	public String remover(Avaliador avaliador) {
@@ -106,6 +108,7 @@ public class AvaliadorBean {
 			adicionarMensagem("Avaliador removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarAvaliador();
 		}
+		listarAvaliador();
 		return "avaliador";
 	}
 
