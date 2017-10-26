@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\ProvaBean.java
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\CandidatoDao.java
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\filter\ControleDeAcesso.java
@@ -24,3 +25,31 @@ D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\Candid
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\DAO.java
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\ResultadoCriterioDao.java
 D:\avaliacao\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\CriterioDao.java
+=======
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\TipoAvaliacaoBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\CandidatoBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\Transactional.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\Prova.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\ResultadoCriterio.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\AvaliadorBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\Avaliador.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\CandidatoDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\ProvaDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\ResultadoCriterioBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\EntityManagerProducer.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\Candidato.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\TransactionInterceptor.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\Criterio.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\DAO.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\filter\ControleDeAcesso.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\AvaliadorDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\AutenticacaoBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\CriterioDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\ResultadoCriterioDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\dao\impl\TipoAvaliacaoDao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\TipoAvaliacao.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\ErroBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\CriterioBean.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\model\JavaMailApp.java
+D:\SysOutTechWorkspace\ProjetoDB1Start\Db1Start\src\main\java\br\com\db1\controller\ProvaBean.java
+>>>>>>> d0811821799d860165e7112f7f3410f1da909f3c

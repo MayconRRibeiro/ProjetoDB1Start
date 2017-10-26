@@ -25,6 +25,9 @@ public class Avaliador {
 	@Column(length = 40, nullable = false, unique = true)
 	private String email;
 
+	@Column(length = 10, nullable = false)
+	private String tipo;
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "avaliador")
 	private List<Prova> provas;
 
@@ -50,6 +53,14 @@ public class Avaliador {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public List<Prova> getProvas() {

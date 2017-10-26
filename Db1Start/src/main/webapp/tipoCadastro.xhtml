@@ -10,13 +10,13 @@
 					<h:outputLabel class="titulo" value="CADASTRAR NOVO TIPO DE AVALIAÇÃO" />
 				</div>
 				<div class="col-5">
-					<h:outputLabel value="NOME:" for="campo-nomeTipo" class="col-2Tipo" />
-					<h:inputText value="" id="campoTipo" class="col-4Tipo2" />
-					<h:outputLabel value="PRAZO:" for="campo-prazoTipo"
+					<h:outputLabel value="Nome:" for="campo-nome" class="col-2Tipo" />
+					<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.nome}" id="campo-nome" class="col-4Tipo2" />
+					<h:outputLabel value="Prazo:" for="campo-prazo"
 						class="col-2Tipo1" />
-					<h:inputText value="" id="prazoTipo" class="col-4Tipo3" />
+					<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.prazo}" id="campo-prazo" class="col-4Tipo3" />
 					<h:commandButton class="btn btn-danger6" value="SALVAR"
-						id="botaoTipo2" />
+						id="botaoTipo2" action="#{tipoAvaliacaoBean.salvar}"/>
 				</div>
 				<div class="col-8">
 					<h:outputLabel value="CRITÉRIOS OBRIGATÓRIOS" class="col-6Cr" />
