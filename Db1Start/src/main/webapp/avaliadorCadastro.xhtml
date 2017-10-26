@@ -33,12 +33,12 @@
 								<h:outputLabel value="#{item.email}" />
 							</h:column>
 							<h:column>
-								<h:commandLink action="#{avaliadorBean.editar(item)}" data-toggle="modal" data-target="#flipFlop">
+								<h:commandLink action="#{avaliadorBean.editar(item)}" data-toggle="modal" immediate="true" data-target="#flipFlop">
 									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
 										title="Editar" />
 								</h:commandLink>
 
-								<h:commandLink action="#{avaliadorBean.remover(item)}" data-toggle="modal" data-target="#flipFlop">
+								<h:commandLink action="#{avaliadorBean.remover(item)}" immediate="true" data-toggle="modal" data-target="#flipFlop">
 									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
 										title="Remover" />
 								</h:commandLink>
