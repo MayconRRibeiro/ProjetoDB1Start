@@ -5,28 +5,88 @@
 
 <ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
-
-
 		<h:form>
-			<div class="content-wrapper" id="div-corpo">
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Avaliadores
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
 
-				<div class="row123">
-					<h:outputLabel value="CADASTRAR NOVO AVALIADOR" />
-				</div>
-				<div class="col-6">
-					<h:outputLabel value="NOME:" for="campo-nome" class="col-2AvaT" />
-					<h:inputText value="#{avaliadorBean.avaliador.nome}"
-						id="campo-nome" required="true" />
-				</div>
-				<div class="col-6">
-					<h:outputLabel value="EMAIL:" for="campo-email" class="col-2AvaT" />
-					<h:inputText value="#{avaliadorBean.avaliador.email}"
-						id="campo-email" required="true" />
-				</div>
+						<button type="button" class="btn btn-primary btn-lg"
+							data-toggle="modal" data-target="#flipFlop">Incluir</button> 
 
-				<div class="col-6">
-					<h:commandButton class="btn btn-danger3" value="SALVAR"
-						id="botaoAva" action="#{avaliadorBean.salvar}" />
+						<h:dataTable id="dataTable" value="#{avaliadorBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">NOME</f:facet>
+								<h:outputLabel value="#{item.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">EMAIL</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{avaliadorBean.editar(item)}" data-toggle="modal" data-target="#flipFlop">
+									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
+										title="Editar" />
+								</h:commandLink>
+
+								<h:commandLink action="#{avaliadorBean.remover(item)}" data-toggle="modal" data-target="#flipFlop">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+
+							</h:column>
+						</h:dataTable>
+
+						<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
+							aria-labelledby="modalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true"></span>
+										</button>
+										<h4 class="modal-title" id="modalLabel">Cadastro Avaliadores</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<h:outputLabel value="Nome:" for="campo-nome" />
+											<h:inputText value="#{avaliadorBean.avaliador.nome}"
+												id="campo-nome" required="true" label="Nome"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<h:message for="campo-nome" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="Email: " for="campo-email" />
+											<h:inputText value="#{avaliadorBean.avaliador.email}"
+												id="campo-email" required="true" label="email"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<h:message for="campo-email" style="color:red" />
+										</div>
+									</div>
+									<div class="modal-footer">
+										<h:commandButton value="Salvar"
+											action="#{avaliadorBean.salvar}" class="btn btn-success"
+											data-dismiss="modal" />
+										<h:commandButton  value="close" class="btn btn-secondary"
+											data-dismiss="modal"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</h:form>

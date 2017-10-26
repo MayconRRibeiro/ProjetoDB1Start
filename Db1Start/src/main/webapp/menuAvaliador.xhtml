@@ -30,7 +30,7 @@
 
 </head>
 
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer" id="page-top">
 	<!-- Navigation-->
 
 	<ui:insert name="menu-completo" id="div-menu">
@@ -50,7 +50,7 @@
 							<i class="fa fa-fw fa-dashboard"></i>
 							<span class="nav-link-text">Início</span>
 						</h:commandLink></li>
-					
+
 					<li class="nav-item" title="Link"><h:commandLink
 							class="nav-link" action="relatoriosAvaliador.xhtml">
 							<i class="fa fa-fw fa-area-chart"></i>
@@ -66,11 +66,12 @@
 				<ul class="navbar-nav ml-10 mr-0">
 					<li class="nav-item">
 						<!--span class="notification-label"></span-->
-						
+
 						<div class="dropdown-container notificacao align-right">
 							<a href="#" data-dropdown="notificationMenu"
 								class="menu-link has-notifications circle"> <i
-								class="notificacao"><img src="img/notificacao.png" width="30%"/></i>
+								class="notificacao"><img src="img/notificacao.png"
+									width="30%" /></i>
 							</a>
 							<ul class="dropdown" name="notificationMenu">
 								<li class="notification-group">
@@ -173,10 +174,9 @@
 			</div>
 		</h:form>
 	</ui:insert>
-
-	<ui:insert name="corpo">
-		<div class="content-wrapper"></div>
-	</ui:insert>
+	<div class="content-wrapper">
+		<ui:insert name="corpo" />
+	</div>
 
 
 	<!-- Bootstrap core JavaScript-->
@@ -196,7 +196,7 @@
 	<script src="js/sb-admin-charts.min.js"></script>
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
-    <script  src="js/menu-not.js"></script>
+	<script src="js/menu-not.js"></script>
 
 </body>
 

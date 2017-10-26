@@ -32,6 +32,7 @@ public class AvaliadorBean {
 		zerarLista();
 		this.avaliador = new Avaliador();
 		this.nomeAvaliadorFiltrado = "";
+		listarAvaliador();
 	}
 	
 	private void zerarLista() {

@@ -10001,6 +10001,8 @@ button.close {
 }
 
 .modal-title {
+	margin-left: auto;
+    margin-right: auto;
 	margin-bottom: 0;
 	line-height: 1.5;
 }

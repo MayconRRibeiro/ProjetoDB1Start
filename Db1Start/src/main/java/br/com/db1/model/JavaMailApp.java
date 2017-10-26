@@ -31,12 +31,12 @@ public class JavaMailApp {
 			message.setFrom(new InternetAddress("hiago_luvizutto@hotmail.com")); 
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("hiagoluvizutto@gmail.com"));
 			message.setSubject("Notificação sistema de avaliação");
-			if (usuario="rh"){
+			/*if (usuario="rh"){
 				message.setText("AAAAAAAAAAAAAA");
 			} 
 			else {
 				message.setText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-			}
+			}*/
 			
 			Transport.send(message);
 			System.out.println("Feito!!!");
