@@ -83,7 +83,7 @@ public class CandidatoBean {
 			adicionarMensagem("Candidato salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.candidato = new Candidato();
 		}
-		return "candidato";
+		return "listaCandidatos";
 	}
 
 	public String editar(Candidato candidato) {

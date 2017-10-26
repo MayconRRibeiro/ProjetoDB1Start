@@ -20,7 +20,7 @@ public class Candidato {
 	@Column(length = 40, nullable = false, unique = true)
 	private String email;
 	@Column(nullable = false)
-	private Integer telefone;
+	private Integer celular;
 	@Column(length = 40, unique = true)
 	private String linkedin;
 	@Column(length = 50)
@@ -50,12 +50,12 @@ public class Candidato {
 		this.email = email;
 	}
 
-	public Integer getTelefone() {
-		return telefone;
+	public Integer getCelular() {
+		return celular;
 	}
 
-	public void setTelefone(Integer telefone) {
-		this.telefone = telefone;
+	public void setCelular(Integer celular) {
+		this.celular = celular;
 	}
 
 	public String getLinkedin() {
