@@ -14,14 +14,19 @@
 					<h:outputLabel value="CADASTRAR NOVO AVALIADOR" />
 				</div>
 				<div class="col-6">
-					<h:outputLabel value="NOME:" for="campo-nome" class="col-2AvaT" />
+					<h:outputLabel value="Nome:" for="campo-nome" class="col-2AvaT" />
 					<h:inputText value="#{avaliadorBean.avaliador.nome}"
 						id="campo-nome" required="true" />
 				</div>
 				<div class="col-6">
-					<h:outputLabel value="EMAIL:" for="campo-email" class="col-2AvaT" />
+					<h:outputLabel value="E-mail:" for="campo-email" class="col-2AvaT" />
 					<h:inputText value="#{avaliadorBean.avaliador.email}"
 						id="campo-email" required="true" />
+				</div>
+				<div class="col-6">
+					<h:outputLabel value="Tipo:" for="campo-tipo" class="col-2AvaT" />
+					<h:inputText value="#{avaliadorBean.avaliador.tipo}"
+						id="campo-tipo" required="true" />
 				</div>
 
 				<div class="col-6">

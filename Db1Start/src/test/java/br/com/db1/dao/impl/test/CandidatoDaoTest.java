@@ -11,9 +11,7 @@ public class CandidatoDaoTest {
 	Avaliador avaliador = new Avaliador();
 	AvaliadorDao avaliadorDao = new AvaliadorDao();
 	Long id = (long) 1;
-	
-	@Test
-	
+		
 	public void saveTest() {
 		Assert.assertEquals(avaliadorDao.save(avaliador), false);		
 	}

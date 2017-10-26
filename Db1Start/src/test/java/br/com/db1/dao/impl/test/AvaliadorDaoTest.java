@@ -11,7 +11,6 @@ public class AvaliadorDaoTest {
 	Avaliador avaliador = new Avaliador();
 	AvaliadorDao avaliadorDao = new AvaliadorDao();	
 	
-	@Test
 	public void saveTest() {
 		avaliador.setId(5L);
 		avaliador.setNome("Fusca");

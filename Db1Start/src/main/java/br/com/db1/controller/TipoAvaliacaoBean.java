@@ -83,7 +83,7 @@ public class TipoAvaliacaoBean {
 			adicionarMensagem("TipoAvaliacao salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.tipoAvaliacao = new TipoAvaliacao();
 		}
-		return "tipoAvaliacao";
+		return "listaTipos";
 	}
 
 	public String editar(TipoAvaliacao tipoAvaliacao) {

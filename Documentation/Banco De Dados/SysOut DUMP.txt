@@ -1,0 +1,86 @@
+
+CREATE TABLE avaliador (
+  id serial NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE tipoAvaliacao (
+  id serial NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  prazo INTEGER NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE criterio (
+  id serial NOT NULL,
+  descricao VARCHAR(20) NOT NULL,
+  obrigatorio BOOLEAN NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE candidato (
+  id serial NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  email VARCHAR(40) NOT NULL,
+  celular INTEGER NOT NULL,
+  linkedin VARCHAR(50),
+  obs VARCHAR(100),
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE resultadoCriterio (
+  id serial NOT NULL,
+  resultado VARCHAR(20) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE usuario (
+  id serial NOT NULL,
+  login VARCHAR(20) NOT NULL,
+  senha VARCHAR(20) NOT NULL,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE prova (
+  id serial NOT NULL,
+  nome VARCHAR(50) NOT NULL,
+  tipo VARCHAR(20) NOT NULL,
+  pontos_fortes VARCHAR(30),
+  pontos_fracos VARCHAR(30),
+  parecer VARCHAR(50),
+  avaliacao BYTEA NOT NULL,
+  data_avaliacao DATE NOT NULL,
+  data_correcao DATE,
+  PRIMARY KEY(id)
+);
+
+
+ALTER TABLE criterio add column tipoAvaliacao_id INTEGER;
+ALTER TABLE criterio add constraint fk_tipoAvaliacao_criterio FOREIGN KEY(tipoAvaliacao_id) 
+REFERENCES tipoAvaliacao(id);
+
+ALTER TABLE resultadoCriterio add column criterio_id INTEGER;
+ALTER TABLE resultadoCriterio add constraint fk_criterio_resultadoCriterio FOREIGN KEY(criterio_id) 
+REFERENCES criterio(id);
+
+ALTER TABLE resultadoCriterio add column prova_id INTEGER;
+ALTER TABLE resultadoCriterio add constraint fk_prova_resultadoCriterio FOREIGN KEY(prova_id) 
+REFERENCES prova(id);
+
+ALTER TABLE prova add column tipoAvaliacao_id INTEGER;
+ALTER TABLE prova add constraint fk_tipoAvaliacao_prova FOREIGN KEY(tipoAvaliacao_id) 
+REFERENCES tipoAvaliacao(id);
+
+ALTER TABLE prova add column candidato_id INTEGER;
+ALTER TABLE prova add constraint fk_candidato_prova FOREIGN KEY(candidato_id) 
+REFERENCES candidato(id);
+
+ALTER TABLE prova add column avaliador_id INTEGER;
+ALTER TABLE prova add constraint fk_avaliador_prova FOREIGN KEY(avaliador_id) 
+REFERENCES avaliador(id);
+
+
+
+
