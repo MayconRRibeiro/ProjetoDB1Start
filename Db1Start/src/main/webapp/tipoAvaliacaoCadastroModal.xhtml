@@ -5,14 +5,11 @@
 
 <ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
-<<<<<<< HEAD
 
-=======
->>>>>>> 2aac545d4583f4af3fa8c171f8612a5bdf468bf9
 		<h:form>
 			<div class="card mb-3">
 				<div class="card-header">
-					<i class="fa fa-table"></i> Avaliadores
+					<i class="fa fa-table"></i> Tipo Avaliação
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -20,38 +17,37 @@
 						<button type="button" class="btn btn-primary btn-lg"
 							data-toggle="modal" data-target="#flipFlop">Incluir</button>
 
-						<h:dataTable id="dataTable" value="#{avaliadorBean.list}"
+						<h:dataTable id="dataTable" value="#{tipoAvaliacaoBean.list}"
 							var="item" class="table table-bordered table-striped table-hover"
 							width="100%" cellspacing="0">
 							<h:column>
-								<f:facet name="header">Id</f:facet>
+								<f:facet name="header">ID</f:facet>
 								<h:outputLabel value="#{item.id}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">Nome</f:facet>
+								<f:facet name="header">NOME</f:facet>
 								<h:outputLabel value="#{item.nome}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">E-mail</f:facet>
-								<h:outputLabel value="#{item.email}" />
+								<f:facet name="header">PRAZO</f:facet>
+								<h:outputLabel value="#{item.prazo}" />
 							</h:column>
 							<h:column>
-								<h:commandLink action="#{avaliadorBean.editar(item)}" immediate="true">
-									<f:ajax  render="@this" />
-									<f:passThroughAttribute name="data-toggle" value="modal"/>
-									<f:passThroughAttribute name="data-target" value="#flipFlop" />
+								<h:commandLink action="#{tipoAvaliacaoBean.editar(item)}"
+									data-toggle="modal" immediate="true" data-target="#flipFlop">
 									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
-										title="Editar"/>
+										title="Editar" />
 								</h:commandLink>
-							</h:column>
-							<h:column>
-								<h:commandLink action="#{avaliadorBean.remover(item)}"
+
+								<h:commandLink action="#{tipoAvaliacaoBean.remover(item)}"
 									immediate="true" data-toggle="modal" data-target="#flipFlop">
 									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
 										title="Remover" />
 								</h:commandLink>
+
 							</h:column>
 						</h:dataTable>
+
 						<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
 							aria-labelledby="modalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
@@ -61,13 +57,12 @@
 											aria-label="Close">
 											<span aria-hidden="true"></span>
 										</button>
-										<h4 class="modal-title" id="modalLabel">Cadastro
-											Avaliadores</h4>
+										<h4 class="modal-title" id="modalLabel">Cadastro Tipo Avaliação</h4>
 									</div>
 									<div class="modal-body">
 										<div class="form-group">
 											<h:outputLabel value="Nome:" for="campo-nome" />
-											<h:inputText value="#{avaliadorBean.avaliador.nome}"
+											<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.nome}"
 												id="campo-nome" required="true" label="Nome"
 												validatorMessage="Digite somente letras" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
@@ -76,11 +71,10 @@
 											<h:message for="campo-nome" style="color:red" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Email :" for="campo-email" />
-											<h:inputText value="#{avaliadorBean.avaliador.email}"
-												id="campo-email" required="true" label="Email"
-												validatorMessage="Digite somente letras" maxlength="50">
-												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											<h:outputLabel value="Prazo :" for="campo-prazo" />
+											<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.prazo}"
+												id="campo-prazo" required="true" label="Prazo"
+												validatorMessage="Digite somente numeros" maxlength="50">
 											</h:inputText>
 											<br />
 											<h:message for="campo-email" style="color:red" />
@@ -88,9 +82,9 @@
 									</div>
 									<div class="modal-footer">
 										<h:commandButton value="Salvar"
-											action="#{avaliadorBean.salvar}" class="btn btn-success"
+											action="#{tipoAvaliacaoBean.salvar}" class="btn btn-success"
 											data-dismiss="modal" />
-										<h:commandButton value="close" class="btn btn-secondary"
+										<h:commandButton value="Fechar" class="btn btn-secondary"
 											data-dismiss="modal" />
 									</div>
 								</div>
@@ -101,5 +95,6 @@
 			</div>
 		</h:form>
 	</ui:define>
+
 </ui:composition>
 </html>

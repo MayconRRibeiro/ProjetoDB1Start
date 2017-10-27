@@ -32,7 +32,8 @@ public class CandidatoBean {
 	public void init() {
 		zerarLista();
 		this.candidato = new Candidato();
-		this.nomeCandidatoFiltrado =""; 
+		this.nomeCandidatoFiltrado ="";
+		listarCandidato();
 	}
 
 	private void zerarLista() {

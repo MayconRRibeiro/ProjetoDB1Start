@@ -3,6 +3,7 @@ CREATE TABLE avaliador (
   id serial NOT NULL,
   nome VARCHAR(50) NOT NULL,
   email VARCHAR(40) NOT NULL,
+  tipo VARCHAR(10) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -45,8 +46,6 @@ CREATE TABLE usuario (
 
 CREATE TABLE prova (
   id serial NOT NULL,
-  nome VARCHAR(50) NOT NULL,
-  tipo VARCHAR(20) NOT NULL,
   pontos_fortes VARCHAR(30),
   pontos_fracos VARCHAR(30),
   parecer VARCHAR(50),
