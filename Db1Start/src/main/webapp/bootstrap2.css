@@ -14727,3 +14727,6 @@ table {
 	font-size: 22px;
 	margin-left: 35px;
 }
+.inputTextRight {
+	align-items: left;
+}

@@ -32,17 +32,17 @@
 								<f:facet name="header">EMAIL</f:facet>
 								<h:outputLabel value="#{item.email}" />
 							</h:column>
-								<h:column>
+							<h:column>
 								<f:facet name="header">TELEFONE</f:facet>
-								<h:outputLabel value="#{item.email}" />
+								<h:outputLabel value="#{item.celular}" />
 							</h:column>
-								<h:column>
+							<h:column>
 								<f:facet name="header">LINKEDIN</f:facet>
-								<h:outputLabel value="#{item.email}" />
+								<h:outputLabel value="#{item.linkedin}" />
 							</h:column>
-								<h:column>
+							<h:column>
 								<f:facet name="header">OBS</f:facet>
-								<h:outputLabel value="#{item.email}" />
+								<h:outputLabel value="#{item.obs}" />
 							</h:column>
 							<h:column>
 								<h:commandLink action="#{candidatoBean.editar(item)}"
@@ -70,22 +70,25 @@
 											<span aria-hidden="true"></span>
 										</button>
 										<h4 class="modal-title" id="modalLabel">Cadastro
-											Avaliadores</h4>
+											Candidatos</h4>
 									</div>
 									<div class="modal-body">
 										<div class="form-group">
-											<h:outputLabel value="Nome:" for="campo-nome"/>
-											<h:inputText value="#{avaliadorBean.avaliador.nome}"
-												id="campo-nome" required="true" label="Nome"
-												validatorMessage="Digite somente letras" maxlength="50">
-												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
-											</h:inputText>
-											<br />
-											<h:message for="campo-nome" style="color:red" />
+											<div class="row">
+												<div class="col-12">
+													<h:outputLabel value="Nome:" for="campo-nome" class="inputTextRight"/>
+													<h:inputText value="#{candidatoBean.candidato.nome}"
+														id="campo-nome" required="true" label="Nome"
+														validatorMessage="Digite somente letras" maxlength="50">
+														<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+													</h:inputText>
+													<h:message for="campo-nome" style="color:red" />
+												</div>
+											</div>
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Email :" for="campo-email" />
-											<h:inputText value="#{avaliadorBean.avaliador.email}"
+											<h:outputLabel value="Email :" for="campo-email" class="inputTextRight"/>
+											<h:inputText value="#{candidatoBean.candidato.email}"
 												id="campo-email" required="true" label="Email"
 												validatorMessage="Digite somente letras" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
@@ -94,18 +97,17 @@
 											<h:message for="campo-email" style="color:red" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Telefone :" for="campo-telefone" />
-											<h:inputText value="#{avaliadorBean.avaliador.email}"
-												id="campo-telefone" required="true" label="Telefone"
+											<h:outputLabel value="Telefone :" for="campo-celular" class="inputTextRight"/>
+											<h:inputText value="#{candidatoBean.candidato.celular}"
+												id="campo-celular" required="true" label="Telefone"
 												validatorMessage="Digite somente numeros" maxlength="50">
-												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
 											</h:inputText>
 											<br />
 											<h:message for="campo-telefone" style="color:red" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="LinkedIn:" for="campo-linkedin"/>
-											<h:inputText value="#{avaliadorBean.avaliador.email}"
+											<h:outputLabel value="LinkedIn:" for="campo-linkedin" class="inputTextRight"/>
+											<h:inputText value="#{candidatoBean.candidato.linkedin}"
 												id="campo-linkedin" required="true" label="linkedin"
 												validatorMessage="Digite somente letras" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
@@ -114,8 +116,8 @@
 											<h:message for="campo-linkedin" style="color:red" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Obs:" for="campo-obs"/>
-											<h:inputText value="#{avaliadorBean.avaliador.email}"
+											<h:outputLabel value="Obs:" for="campo-obs" class="inputTextRight"/>
+											<h:inputText value="#{candidatoBean.candidato.obs}"
 												id="campo-obs" required="true" label="Obs"
 												validatorMessage="Digite somente numeros" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
