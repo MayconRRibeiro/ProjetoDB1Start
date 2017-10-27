@@ -5,7 +5,7 @@
 
 <ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
-	
+
 		<h:form>
 			<div class="card mb-3">
 				<div class="card-header">
@@ -15,11 +15,11 @@
 					<div class="table-responsive">
 
 						<button type="button" class="btn btn-primary btn-lg"
-							data-toggle="modal" data-target="#flipFlop">Incluir</button> 
+							data-toggle="modal" data-target="#flipFlop">Incluir</button>
 
 						<h:dataTable id="dataTable" value="#{avaliadorBean.list}"
 							var="item" class="table table-bordered table-striped table-hover"
-							width="100%" cellspacing="0" >
+							width="100%" cellspacing="0">
 							<h:column>
 								<f:facet name="header">ID</f:facet>
 								<h:outputLabel value="#{item.id}" />
@@ -33,16 +33,20 @@
 								<h:outputLabel value="#{item.email}" />
 							</h:column>
 							<h:column>
-								<h:commandLink action="#{avaliadorBean.editar(item)}" data-toggle="modal" immediate="true" data-target="#flipFlop">
+								<h:commandLink action="#{avaliadorBean.editar(item)}" immediate="true">
+									<f:ajax  render="@this" />
+									<f:passThroughAttribute name="data-toggle" value="modal"/>
+									<f:passThroughAttribute name="data-target" value="#flipFlop" />
 									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
-										title="Editar" />
+										title="Editar"/>
 								</h:commandLink>
-
-								<h:commandLink action="#{avaliadorBean.remover(item)}" immediate="true" data-toggle="modal" data-target="#flipFlop">
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{avaliadorBean.remover(item)}"
+									immediate="true" data-toggle="modal" data-target="#flipFlop">
 									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
 										title="Remover" />
 								</h:commandLink>
-
 							</h:column>
 						</h:dataTable>
 
@@ -55,7 +59,8 @@
 											aria-label="Close">
 											<span aria-hidden="true"></span>
 										</button>
-										<h4 class="modal-title" id="modalLabel">Cadastro Avaliadores</h4>
+										<h4 class="modal-title" id="modalLabel">Cadastro
+											Avaliadores</h4>
 									</div>
 									<div class="modal-body">
 										<div class="form-group">
@@ -65,7 +70,7 @@
 												validatorMessage="Digite somente letras" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
 											</h:inputText>
-											<br/>
+											<br />
 											<h:message for="campo-nome" style="color:red" />
 										</div>
 										<div class="form-group">
@@ -75,7 +80,7 @@
 												validatorMessage="Digite somente letras" maxlength="50">
 												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
 											</h:inputText>
-											<br/>
+											<br />
 											<h:message for="campo-email" style="color:red" />
 										</div>
 									</div>
@@ -83,8 +88,8 @@
 										<h:commandButton value="Salvar"
 											action="#{avaliadorBean.salvar}" class="btn btn-success"
 											data-dismiss="modal" />
-										<h:commandButton  value="close" class="btn btn-secondary"
-											data-dismiss="modal"/>
+										<h:commandButton value="close" class="btn btn-secondary"
+											data-dismiss="modal" />
 									</div>
 								</div>
 							</div>
