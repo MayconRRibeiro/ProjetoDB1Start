@@ -21,17 +21,18 @@
 							var="item" class="table table-bordered table-striped table-hover"
 							width="100%" cellspacing="0">
 							<h:column>
-								<f:facet name="header">ID</f:facet>
+								<f:facet name="header">Id</f:facet>
 								<h:outputLabel value="#{item.id}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">NOME</f:facet>
+								<f:facet name="header">Nome</f:facet>
 								<h:outputLabel value="#{item.nome}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">EMAIL</f:facet>
+								<f:facet name="header">E-mail</f:facet>
 								<h:outputLabel value="#{item.email}" />
 							</h:column>
+<<<<<<< HEAD
 							<h:column>
 								<f:facet name="header">TELEFONE</f:facet>
 								<h:outputLabel value="#{item.celular}" />
@@ -43,6 +44,19 @@
 							<h:column>
 								<f:facet name="header">OBS</f:facet>
 								<h:outputLabel value="#{item.obs}" />
+=======
+								<h:column>
+								<f:facet name="header">Telefone</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+								<h:column>
+								<f:facet name="header">Linkedin</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+								<h:column>
+								<f:facet name="header">Obs</f:facet>
+								<h:outputLabel value="#{item.email}" />
+>>>>>>> 6d2762f8771f5fb589474796e50cd26f1c27be41
 							</h:column>
 							<h:column>
 								<h:commandLink action="#{candidatoBean.editar(item)}"

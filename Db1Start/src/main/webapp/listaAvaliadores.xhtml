@@ -1,20 +1,34 @@
 
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menuRh.xhtml">
+	xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" lang="en"
+	template="menuRh.xhtml">
 	<ui:define name="corpo">
 
 		<h:form>
-			<div class="content-wrapper" id="div-corpo">
-				<div class="rowAva">
-					<h:outputLabel value="AVALIADORES" />
-				</div>
-				<div class="col-6">
-					<h:commandButton class="btn btn-danger5" value="INCLUIR"
-						id="botaoAva" action="avaliadorCadastro.xhtml" />
-				</div>
+			<div class="rowAva">
+				<h:outputLabel value="Avaliadores" />
 			</div>
+			<div class="col-6">
+				<h:commandButton class="btn btn-danger5" value="INCLUIR"
+					id="botaoAva" action="avaliadorCadastro.xhtml" />
+			</div>
+			<h:dataTable id="dataTable" value="#{candidatoBean.list}" var="item"
+				class="table table-bordered table-striped table-hover" >
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+					<h:outputLabel value="#{item.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputLabel value="#{item.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">E-mail</f:facet>
+					<h:outputLabel value="#{item.email}" />
+				</h:column>
+			</h:dataTable>
 		</h:form>
 	</ui:define>
 

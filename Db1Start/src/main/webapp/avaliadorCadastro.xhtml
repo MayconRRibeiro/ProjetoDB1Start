@@ -5,7 +5,6 @@
 
 <ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
-	
 		<h:form>
 			<div class="card mb-3">
 				<div class="card-header">
@@ -21,15 +20,15 @@
 							var="item" class="table table-bordered table-striped table-hover"
 							width="100%" cellspacing="0" >
 							<h:column>
-								<f:facet name="header">ID</f:facet>
+								<f:facet name="header">Id</f:facet>
 								<h:outputLabel value="#{item.id}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">NOME</f:facet>
+								<f:facet name="header">Nome</f:facet>
 								<h:outputLabel value="#{item.nome}" />
 							</h:column>
 							<h:column>
-								<f:facet name="header">EMAIL</f:facet>
+								<f:facet name="header">E-mail</f:facet>
 								<h:outputLabel value="#{item.email}" />
 							</h:column>
 							<h:column>
@@ -42,10 +41,8 @@
 									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
 										title="Remover" />
 								</h:commandLink>
-
 							</h:column>
 						</h:dataTable>
-
 						<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
 							aria-labelledby="modalLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
@@ -94,6 +91,5 @@
 			</div>
 		</h:form>
 	</ui:define>
-
 </ui:composition>
 </html>
