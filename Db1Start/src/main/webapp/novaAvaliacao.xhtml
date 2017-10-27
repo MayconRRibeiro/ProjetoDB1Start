@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en" template="menuRh.xhtml">
-	<link rel="stylesheet" type="text/css" href="bootstrap2.css" />
->>>>>>> de42cd669dea9122f6aa454d0bdf52530631fb4d
-
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://bootsfaces.net/ui"
 	xmlns:h="http://java.sun.com/jsf/html" lang="en"
@@ -13,26 +5,22 @@
 	<ui:define name="corpo">
 
 		<h:form>
-			<div class="content-wrapper" id="div-corpo">
 				<div class="col-6Tipo">
-					<h:outputLabel class="titulo" value="NOVA AVALIAÇÃO" />
+					<h:outputLabel class="titulo" value="Nova Avaliação" />
 				</div>
 				<div class="col-6">
 					<h:outputLabel value="Candidato:" for="campo-candidato"
 						class="col-2AvaT" />
-<<<<<<< HEAD
 					<h:inputText id="campo-email" required="true" class="col-6NovaAva1" />
-=======
 					<h:inputText id="campo-candidato" required="true" />
->>>>>>> de42cd669dea9122f6aa454d0bdf52530631fb4d
 				</div>
 				<div class="col-6">
-					<h:outputLabel value="TIPO PROVA:" for="campo-email"
+					<h:outputLabel value="Tipo Prova:" for="campo-email"
 						class="col-2AvaT" />
 					<h:inputText id="campo-prova" required="true" class="col-6NovaAva2" />
 				</div>
 				<div class="col-6">
-					<h:outputLabel value="AVALIADOR:" for="campo-email"
+					<h:outputLabel value="Avaliador:" for="campo-email"
 						class="col-2AvaT" />
 					<h:inputText id="campo-avaliador" required="true"
 						class="col-6NovaAva3" />
@@ -45,11 +33,9 @@
 					<h:message for="campo-arquivo" style="color:red" />
 				</div>
 				<div>
-					<h:commandButton value="SALVAR" action="#{arquivoBean.importa}"
+					<h:commandButton value="Salvar" action="#{arquivoBean.importa}"
 						class="btn btn-danger13" />
 				</div>
-			</div>
-
 		</h:form>
 	</ui:define>
 

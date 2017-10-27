@@ -24,28 +24,17 @@ public class ProvaBean {
 
 	private List<Prova> list;
 
-	private String nomeProvaFiltrado;
-
 	private Prova prova;
 
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.prova= new Prova();
-		this.nomeProvaFiltrado = "";
 
 	}
 
 	private void zerarLista() {
 		list = new ArrayList<Prova>();
-	}
-
-	public String getNomeCidadeFiltrada() {
-		return nomeProvaFiltrado;
-	}
-
-	public void setNomeCidadeFiltrada(String nomeCidadeFiltrada) {
-		this.nomeProvaFiltrado = nomeCidadeFiltrada;
 	}
 
 	public ProvaDao getDao() {
@@ -82,7 +71,6 @@ public class ProvaBean {
 			adicionarMensagem("Erro ao cadastrar o prova.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Prova salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeProvaFiltrado = this.prova.getNome();
 			this.prova = new Prova();
 		}
 		return "prova";
@@ -98,18 +86,8 @@ public class ProvaBean {
 			adicionarMensagem("Erro ao remover o prova.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Prova removido com sucesso.", FacesMessage.SEVERITY_INFO);
-			listarProva();
 		}
 		return "prova";
-	}
-
-	public void listarProva() {
-		zerarLista();
-		if (!nomeProvaFiltrado.isEmpty()) {
-			list.addAll(dao.findByName(nomeProvaFiltrado));
-		} else {
-			list.addAll(dao.findAll());
-		}
 	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
