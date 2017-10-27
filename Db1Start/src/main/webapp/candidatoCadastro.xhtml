@@ -6,45 +6,40 @@
 
 	<ui:define name="corpo">
 		<h:form>
-			<div class="content-wrapper" id="div-corpo">
-				<div class="row123">
-					<h:outputLabel value="CADASTRAR NOVO CANDIDATO" />
-				</div>
+			<div class="row123">
+				<h:outputLabel value="CADASTRAR NOVO CANDIDATO" />
+			</div>
 
-				<div class="col-md-5">
-					<h:outputLabel value="Nome:" for="campo-nome" class="col-2Cand2" />
-					<h:inputText value="#{candidatoBean.candidato.nome}"
-						id="campo-nome" required="true" class="col-4Cand3" />
-				</div>
-				<div class="col-md-5">
-					<h:outputLabel value="Email:" for="campo-email" class="col-2Cand2" />
-					<h:inputText value="#{candidatoBean.candidato.email}"
-						id="campo-email" required="true" class="col-4Cand3" />
-				</div>
-				<div class="col-md-5">
-					<h:outputLabel value="Celular:" for="campo-celular"
-						class="col-2Cand2" />
-					<h:inputText value="#{candidatoBean.candidato.celular}"
-						id="campo-celular" required="true" class="col-4Cand3" />
-				</div>
-				<div class="col-md-5">
-					<h:outputLabel value="LinkedIn:" for="campo-linkedin"
-						class="col-2Cand4" />
-					<h:inputText value="#{candidatoBean.candidato.linkedin}"
-						id="campo-linkedin" class="col-4Cand3" />
-				</div>
-				<div class="col-md-5">
-					<h:outputLabel value="Obs:" for="campo-obs" class="col-2Cand2" />
-					<h:inputText value="#{candidatoBean.candidato.obs}" id="campo-obs"
-						class="col-4Cand3" />
-				</div>
-				<div class="col-6">
-					<h:commandButton class="btn btn-danger55" value="SALVAR"
-						id="botaoCand" action="#{candidatoBean.salvar}" />
-				</div>
-
-
-
+			<div class="col-md-5">
+				<h:outputLabel value="Nome:" for="campo-nome" class="col-2Cand2" />
+				<h:inputText value="#{candidatoBean.candidato.nome}" id="campo-nome"
+					required="true" class="col-4Cand3" />
+			</div>
+			<div class="col-md-5">
+				<h:outputLabel value="Email:" for="campo-email" class="col-2Cand2" />
+				<h:inputText value="#{candidatoBean.candidato.email}"
+					id="campo-email" required="true" class="col-4Cand3" />
+			</div>
+			<div class="col-md-5">
+				<h:outputLabel value="Celular:" for="campo-celular"
+					class="col-2Cand2" />
+				<h:inputText value="#{candidatoBean.candidato.celular}"
+					id="campo-celular" required="true" class="col-4Cand3" />
+			</div>
+			<div class="col-md-5">
+				<h:outputLabel value="LinkedIn:" for="campo-linkedin"
+					class="col-2Cand4" />
+				<h:inputText value="#{candidatoBean.candidato.linkedin}"
+					id="campo-linkedin" class="col-4Cand3" />
+			</div>
+			<div class="col-md-5">
+				<h:outputLabel value="Obs:" for="campo-obs" class="col-2Cand2" />
+				<h:inputText value="#{candidatoBean.candidato.obs}" id="campo-obs"
+					class="col-4Cand3" />
+			</div>
+			<div class="col-6">
+				<h:commandButton class="btn btn-danger55" value="SALVAR"
+					id="botaoCand" action="#{candidatoBean.salvar}" />
 			</div>
 		</h:form>
 	</ui:define>

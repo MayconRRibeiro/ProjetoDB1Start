@@ -1,0 +1,144 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="menuRh.xhtml">
+	<ui:define name="corpo">
+
+		<h:form>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Candidatos
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+
+						<button type="button" class="btn btn-primary btn-lg"
+							data-toggle="modal" data-target="#flipFlop">Incluir</button>
+
+						<h:dataTable id="dataTable" value="#{candidatoBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">NOME</f:facet>
+								<h:outputLabel value="#{item.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">EMAIL</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+								<h:column>
+								<f:facet name="header">TELEFONE</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+								<h:column>
+								<f:facet name="header">LINKEDIN</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+								<h:column>
+								<f:facet name="header">OBS</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{candidatoBean.editar(item)}"
+									data-toggle="modal" immediate="true" data-target="#flipFlop">
+									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
+										title="Editar" />
+								</h:commandLink>
+
+								<h:commandLink action="#{candidatoBean.remover(item)}"
+									immediate="true" data-toggle="modal" data-target="#flipFlop">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+
+							</h:column>
+						</h:dataTable>
+
+						<div class="modal fade" id="flipFlop" tabindex="-1" role="dialog"
+							aria-labelledby="modalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true"></span>
+										</button>
+										<h4 class="modal-title" id="modalLabel">Cadastro
+											Avaliadores</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<h:outputLabel value="Nome:" for="campo-nome"/>
+											<h:inputText value="#{avaliadorBean.avaliador.nome}"
+												id="campo-nome" required="true" label="Nome"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-nome" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="Email :" for="campo-email" />
+											<h:inputText value="#{avaliadorBean.avaliador.email}"
+												id="campo-email" required="true" label="Email"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-email" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="Telefone :" for="campo-telefone" />
+											<h:inputText value="#{avaliadorBean.avaliador.email}"
+												id="campo-telefone" required="true" label="Telefone"
+												validatorMessage="Digite somente numeros" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-telefone" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="LinkedIn:" for="campo-linkedin"/>
+											<h:inputText value="#{avaliadorBean.avaliador.email}"
+												id="campo-linkedin" required="true" label="linkedin"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-linkedin" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="Obs:" for="campo-obs"/>
+											<h:inputText value="#{avaliadorBean.avaliador.email}"
+												id="campo-obs" required="true" label="Obs"
+												validatorMessage="Digite somente numeros" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-obs" style="color:red" />
+										</div>
+									</div>
+									<div class="modal-footer">
+										<h:commandButton value="Salvar"
+											action="#{candidatoBean.salvar}" class="btn btn-success"
+											data-dismiss="modal" />
+										<h:commandButton value="Fechar" class="btn btn-secondary"
+											data-dismiss="modal" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

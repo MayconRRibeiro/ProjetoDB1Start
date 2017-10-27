@@ -52,14 +52,14 @@ public class Avaliador {
 		this.email = email;
 	}
 
-	public String getTipo() {
+	/*public String getTipo() {
 		return tipo;
 	}
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-
+*/
 	public List<Prova> getProvas() {
 		return provas;
 	}
