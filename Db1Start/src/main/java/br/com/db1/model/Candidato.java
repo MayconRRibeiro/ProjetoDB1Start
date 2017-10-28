@@ -17,12 +17,16 @@ public class Candidato {
 
 	@Column(length = 50, nullable = false)
 	private String nome;
+	
 	@Column(length = 40, nullable = false, unique = true)
 	private String email;
+	
 	@Column(nullable = false)
 	private Integer celular;
+	
 	@Column(length = 40, unique = true)
 	private String linkedin;
+	
 	@Column(length = 50)
 	private String obs;
 

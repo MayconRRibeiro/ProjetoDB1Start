@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="menuRh.xhtml">
+	<ui:define name="corpo">
+		<h:form>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Criterios
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<h:panelGroup rendered="#{criterioBean.mostrar}">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="modalLabel">Cadastro De
+										Criterios</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<h:outputLabel value="Criterio" for="campo-descricao" />
+										<br />
+										<h:inputText value="#{criterioBean.criterio.descricao}"
+											id="campo-nome" required="true" label="Nome"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-nome" style="color:red" />
+									</div>
+
+									<div class="form-group">
+										<h:outputLabel value="Obrigatorio?" for="campo-obrigatorio" />
+										<br />
+										<h:selectOneMenu id="campo-obrigatorio"
+											value="#{criterioBean.criterio.obrigatorio}">
+											<f:selectItem itemValue="true" itemLabel="Sim" />
+											<f:selectItem itemValue="false" itemLabel="Não" />
+										</h:selectOneMenu>
+									</div>
+
+									<div class="form-group">
+										<h:outputLabel value="TipoAvaliação" for="campo-avaliacao" />
+										<br />
+										<h:selectOneMenu id="campo-avaliacao"
+											value="#{criterioBean.criterio.tipoAvaliacao}"
+											required="true" requiredMessage="Valor é obrigatório">
+											<f:selectItem itemValue=""
+												itemLabel="Selecione tipo avaliação" />
+											<f:selectItems value="#{tipoAvaliacaoBean.list}" var="tipo"
+												itemLabel="#{tipo.nome}" itemValue="#{tipo}" />
+												<h:inputText id="textbox"
+											value="#{tipo}" />
+										</h:selectOneMenu>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<h:commandButton value="Salvar" action="#{criterioBean.salvar}"
+										class="btn btn-success" />
+									<h:commandButton value="close" class="btn btn-secondary"
+										data-dismiss="modal"
+										action="#{criterioBean.setMostrar(false)}" immediate="true" />
+								</div>
+							</div>
+						</h:panelGroup>
+						<br />
+						<h:commandButton value="Incluir" class="btn btn-danger"
+							action="#{criterioBean.setMostrar(true)}" />
+						<h:dataTable id="dataTable" value="#{criterioBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Criterio</f:facet>
+								<h:outputLabel value="#{item.descricao}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Obrigatorio</f:facet>
+								<h:outputLabel value="#{item.obrigatorio}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{criterioBean.editar(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
+										title="Editar" />
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{criterioBean.remover(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -6,6 +6,7 @@
 	<ui:define name="corpo">
 
 		<h:form>
+				<br />
 				<div class="row">
 					<div class="col-xl-3 col-sm-6 mb-3">
 						<div class="col-12">
@@ -17,9 +18,8 @@
 									<div class="mr-5">Provas</div>
 								</div>
 								<a class="card-footer text-white clearfix small z-1" href="#">
-									<span class="float-left">Ver Detalhes</span> <span
-									class="float-right"> <i class="fa fa-angle-right"></i>
-								</span>
+									<h:commandLink class="float-right">Ver Detalhes</h:commandLink> 
+									 <i class="fa fa-angle-right"/>
 								</a>
 							</div>
 						</div>
@@ -34,52 +34,16 @@
 									<div class="mr-5">Resultados</div>
 								</div>
 								<a class="card-footer text-white clearfix small z-1" href="#">
-									<span class="float-left">Ver Detalhes</span> <span
-									class="float-right"> <i class="fa fa-angle-right"></i>
-								</span>
+									<span class="float-left">Ver Detalhes</span> 
+									<span class="float-right"> 
+										<i class="fa fa-angle-right"></i>
+									</span>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-xl-4 col-sm-6 mb-3">
-						<div class="col-12">
-							<h:outputLabel value="CANDIDATO:" for="campo-email" />
-							<h:inputText id="campo-email" required="true" />
-						</div>
-
-						<div class="col-12">
-							<h:outputLabel value="TIPO PROVA:" for="campo-email41" />
-							<h:inputText id="campo-email41" required="true" />
-						</div>
-					</div>
-					<div class="col-xl-5 col-sm-6 mb-3">
-						<div class="col-12">
-							<h:outputLabel value="CANDIDATO:" for="campo-email2" />
-							<h:inputText required="true" />
-						</div>
-						<div class="col-12">
-							<h:outputLabel value="PERÍODO:" for="campo-email3" />
-							<h:inputText required="true" class="campoResultadoRh"
-								pt:placeholder="DD/MM" />
-							<h:outputLabel value="A" class="col-1FuscaA" />
-							<h:outputLabel value="" for="campo-email4" />
-							<h:inputText required="true" class="campoResultadoRh1"
-								pt:placeholder="DD/MM" />
-						</div>
-					</div>
-					<div class="col-xl-1 col-sm-6 mb-3">
-						<h:commandButton value="BUSCAR" action="#{arquivoBean.importa}"
-							class="btn btn-danger16" />
-					</div>
-				</div>
-				<div class="row">
-					<h:outputLabel value="PROVAS REALIZADAS" class="col-1FuscaA3"/>
-				</div>
-				<div class="row">
-					<h:outputLabel value="INCLUIR NOVA PROVA" class="btn btn-danger17" />
-				</div>
+				
 		</h:form>
 	</ui:define>
 

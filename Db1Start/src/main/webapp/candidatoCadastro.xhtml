@@ -1,72 +1,145 @@
-
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core" lang="en" xml:lang="en"
-	template="menuRh.xhtml">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
 		<h:form>
-			<div class="row123">
-				<h:outputLabel value="Cadastrar Novo Candidato" />
-			</div>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Candidatos
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<h:panelGroup rendered="#{candidatoBean.mostrar}">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="modalLabel">Cadastro De
+										Candidatos</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<h:outputLabel value="Nome" for="campo-nome" />
+										<br />
+										<h:inputText value="#{candidatoBean.candidato.nome}"
+											id="campo-nome" required="true" label="Nome"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-nome" style="color:red" />
+									</div>
 
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:outputLabel value="Nome:" for="campo-nome" class="col-2Cand2" />
-						<h:inputText value="#{candidatoBean.candidato.nome}"
-							id="campo-nome" required="true" class="col-4Cand3" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:outputLabel value="Email:" for="campo-email" class="col-2Cand2" />
-						<h:inputText value="#{candidatoBean.candidato.email}"
-							id="campo-email" required="true" class="col-4Cand3" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:outputLabel value="Celular:" for="campo-celular"
-							class="col-2Cand2" />
-						<h:inputText value="#{candidatoBean.candidato.celular}"
-							id="campo-celular" required="true" class="col-4Cand3" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:outputLabel value="LinkedIn:" for="campo-linkedin"
-							class="col-2Cand4" />
-						<h:inputText value="#{candidatoBean.candidato.linkedin}"
-							id="campo-linkedin" class="col-4Cand3" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:outputLabel value="Obs:" for="campo-obs" class="col-2Cand2" />
-						<h:inputText value="#{candidatoBean.candidato.obs}" id="campo-obs"
-							class="col-4Cand3" />
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xl-5 col-sm-3 mb-1">
-					<div class="col-12">
-						<h:commandButton class="btn btn-danger55" value="SALVAR"
-							id="botaoCand" action="#{candidatoBean.salvar}" />
+									<div class="form-group">
+										<h:outputLabel value="Email" for="campo-email" />
+										<br />
+										<h:inputText value="#{candidatoBean.candidato.email}"
+											id="campo-email" required="true" label="Email"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-email" style="color:red" />
+									</div>
+
+									<div class="form-group">
+										<h:outputLabel value="Telefone" for="campo-telefone" />
+										<br />
+										<h:inputText value="#{candidatoBean.candidato.celular}"
+											id="campo-telefone" required="true" label="Telefone"
+											validatorMessage="Digite somente letras" maxlength="50">
+										</h:inputText>
+										<br />
+										<h:message for="campo-telefone" style="color:red" />
+									</div>
+
+									<div class="form-group">
+										<h:outputLabel value="Linkedin" for="campo-linkedin" />
+										<br />
+										<h:inputText value="#{candidatoBean.candidato.linkedin}"
+											id="campo-linkedin" required="true" label="Email"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-linkedin" style="color:red" />
+									</div>
+
+									<div class="form-group">
+										<h:outputLabel value="Obs" for="campo-obs" />
+										<br />
+										<h:inputText value="#{candidatoBean.candidato.obs}"
+											id="campo-obs" required="true" label="Obs"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-obs" style="color:red" />
+									</div>
+								</div>
+								<div class="modal-footer">
+									<h:commandButton value="Salvar"
+										action="#{candidatoBean.salvar}" class="btn btn-success" />
+									<h:commandButton value="close" class="btn btn-secondary"
+										data-dismiss="modal"
+										action="#{candidatoBean.setMostrar(false)}" immediate="true" />
+								</div>
+							</div>
+						</h:panelGroup>
+						<br />
+						<h:commandButton value="Incluir" class="btn btn-danger"
+							action="#{candidatoBean.setMostrar(true)}" />
+						<h:dataTable id="dataTable" value="#{candidatoBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:outputLabel value="#{item.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">E-mail</f:facet>
+								<h:outputLabel value="#{item.email}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Telefone</f:facet>
+								<h:outputLabel value="#{item.celular}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Linkedin</f:facet>
+								<h:outputLabel value="#{item.linkedin}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Obs</f:facet>
+								<h:outputLabel value="#{item.obs}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{candidatoBean.editar(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
+										title="Editar" />
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{candidatoBean.remover(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
 					</div>
 				</div>
 			</div>
 		</h:form>
 	</ui:define>
-
 </ui:composition>
+</html>

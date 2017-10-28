@@ -27,12 +27,16 @@ public class ResultadoCriterioBean {
 	private String nomeResultadoCriterioFiltrado;
 
 	private ResultadoCriterio resultadoCriterio;
+	
+	private Boolean mostar;
 
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.resultadoCriterio= new ResultadoCriterio();
 		this.nomeResultadoCriterioFiltrado = "";
+		this.mostar = false;
+		listarResultadoCriterio();
 	}
 
 	private void zerarLista() {
@@ -83,6 +87,8 @@ public class ResultadoCriterioBean {
 			adicionarMensagem("ResultadoCriterio salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.resultadoCriterio = new ResultadoCriterio();
 		}
+		this.mostar = false;
+		listarResultadoCriterio();
 		return "resultadoCriterio";
 	}
 
@@ -98,6 +104,7 @@ public class ResultadoCriterioBean {
 			adicionarMensagem("ResultadoCriterio removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarResultadoCriterio();
 		}
+		listarResultadoCriterio();
 		return "resultadoCriterio";
 	}
 
@@ -116,6 +123,14 @@ public class ResultadoCriterioBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostar() {
+		return mostar;
+	}
+
+	public void setMostar(Boolean mostar) {
+		this.mostar = mostar;
 	}
 
 }

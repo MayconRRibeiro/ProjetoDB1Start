@@ -25,12 +25,15 @@ public class ProvaBean {
 	private List<Prova> list;
 
 	private Prova prova;
+	
+	private Boolean mostrar;
 
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.prova= new Prova();
-
+		this.mostrar = false;
+		listarProva();
 	}
 
 	private void zerarLista() {
@@ -73,12 +76,14 @@ public class ProvaBean {
 			adicionarMensagem("Prova salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.prova = new Prova();
 		}
-		return "prova";
+		this.mostrar = false;
+		listarProva();
+		return "provaCadastro";
 	}
 
 	public String editar(Prova prova) {
 		this.prova = dao.findById(prova.getId());
-		return "cadastrarProva";
+		return "provaCadastro";
 	}
 
 	public String remover(Prova prova) {
@@ -87,7 +92,13 @@ public class ProvaBean {
 		} else {
 			adicionarMensagem("Prova removido com sucesso.", FacesMessage.SEVERITY_INFO);
 		}
-		return "prova";
+		listarProva();
+		return "provaCadastro";
+	}
+	
+	public void listarProva() {
+		zerarLista();
+		list.addAll(dao.findAll());
 	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
@@ -96,6 +107,14 @@ public class ProvaBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(Boolean mostrar) {
+		this.mostrar = mostrar;
 	}
 
 }

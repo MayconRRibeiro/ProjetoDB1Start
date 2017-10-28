@@ -27,12 +27,15 @@ public class CandidatoBean {
 	private String nomeCandidatoFiltrado;
 
 	private Candidato candidato;
+	
+	private Boolean mostrar;
 
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.candidato = new Candidato();
 		this.nomeCandidatoFiltrado ="";
+		this.mostrar = false;
 		listarCandidato();
 	}
 
@@ -84,12 +87,15 @@ public class CandidatoBean {
 			adicionarMensagem("Candidato salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.candidato = new Candidato();
 		}
-		return "listaCandidatos";
+		this.mostrar = false;
+		listarCandidato();
+		return "candidatoCadastro";
 	}
 
 	public String editar(Candidato candidato) {
 		this.candidato = dao.findById(candidato.getId());
-		return "cadastrarCandidato";
+		this.mostrar = true;
+		return "candidatoCadastro";
 	}
 
 	public String remover(Candidato candidato) {
@@ -99,7 +105,8 @@ public class CandidatoBean {
 			adicionarMensagem("Candidato removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarCandidato();
 		}
-		return "candidato";
+		listarCandidato();
+		return "candidatoCadastro";
 	}
 
 	public void listarCandidato() {
@@ -117,6 +124,14 @@ public class CandidatoBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(Boolean mostrar) {
+		this.mostrar = mostrar;
 	}
 
 }

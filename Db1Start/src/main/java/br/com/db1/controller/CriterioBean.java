@@ -27,12 +27,16 @@ public class CriterioBean {
 	private String nomeCriterioFiltrado;
 
 	private Criterio criterio;
-
+	
+	private Boolean mostrar;
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.criterio = new Criterio();
 		this.nomeCriterioFiltrado = "";
+		this.mostrar = false;
+		listarCriterio();
 	}
 
 	private void zerarLista() {
@@ -84,12 +88,14 @@ public class CriterioBean {
 			nomeCriterioFiltrado = this.criterio.getDescricao();
 			this.criterio = new Criterio();
 		}
-		return "criterio";
+		this.mostrar = false;
+		listarCriterio();
+		return "criterioCadastro";
 	}
 
 	public String editar(Criterio criterio) {
 		this.criterio = dao.findById(criterio.getId());
-		return "cadastrarCriterio";
+		return "criterioCadastro";
 	}
 
 	public String remover(Criterio criterio) {
@@ -99,7 +105,8 @@ public class CriterioBean {
 			adicionarMensagem("Criterio removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarCriterio();
 		}
-		return "criterio";
+		listarCriterio();
+		return "criterioCadastro";
 	}
 
 	public void listarCriterio() {
@@ -117,6 +124,14 @@ public class CriterioBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(Boolean mostrar) {
+		this.mostrar = mostrar;
 	}
 
 }

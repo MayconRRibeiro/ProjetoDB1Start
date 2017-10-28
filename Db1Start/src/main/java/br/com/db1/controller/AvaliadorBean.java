@@ -27,11 +27,14 @@ public class AvaliadorBean {
 
 	private Avaliador avaliador;
 
+	private Boolean mostrar;
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.avaliador = new Avaliador();
 		this.nomeAvaliadorFiltrado = "";
+		this.mostrar = false;
 		listarAvaliador();
 	}
 	
@@ -90,7 +93,8 @@ public class AvaliadorBean {
 		} else {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.avaliador = new Avaliador();
-		}		
+		}	
+		this.mostrar = false;
 		listarAvaliador();
 		return "avaliadorCadastro";
 	}
@@ -126,6 +130,14 @@ public class AvaliadorBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(Boolean mostrar) {
+		this.mostrar = mostrar;
 	}
 
 }

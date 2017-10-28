@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="menuRh.xhtml">
+	<ui:define name="corpo">
+		<h:form>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Tipos de avaliação
+				</div> 
+				<div class="card-body">
+					<div class="table-responsive">
+						<h:panelGroup rendered="#{tipoAvaliacaoBean.mostrar}">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true"></span>
+										</button>
+										<h4 class="modal-title" id="modalLabel">Cadastro
+											Tipos de Avaliação</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<h:outputLabel value="Nome:" for="campo-nome" />
+											<br />
+											<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.nome}"
+												id="campo-nome" required="true" label="Nome"
+												validatorMessage="Digite somente letras" maxlength="50">
+												<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+											</h:inputText>
+											<br />
+											<h:message for="campo-nome" style="color:red" />
+										</div>
+										<div class="form-group">
+											<h:outputLabel value="Prazo" for="campo-prazo" />
+											<br />
+											<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.prazo}"
+												id="campo-prazo" required="true" label="Prazo"
+												validatorMessage="Digite somente letras" maxlength="50">
+											</h:inputText>
+											<br />
+											<h:message for="campo-prazo" style="color:red" />
+										</div>
+									</div>
+									<div class="modal-footer">
+										<h:commandButton value="Salvar"
+											action="#{tipoAvaliacaoBean.salvar}" class="btn btn-success"/>
+										<h:commandButton value="close" class="btn btn-secondary"
+											data-dismiss="modal" action="#{tipoAvaliacaoBean.setMostrar(false)}" immediate="true"/>
+									</div>
+								</div>
+								</h:panelGroup>	
+						<br />		
+						<h:commandButton value="Incluir" class="btn btn-danger" action="#{tipoAvaliacaoBean.setMostrar(true)}"/>
+						<h:dataTable id="dataTable" value="#{tipoAvaliacaoBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:outputLabel value="#{item.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Prazo</f:facet>
+								<h:outputLabel value="#{item.prazo}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{tipoAvaliacaoBean.editar(item)}" immediate="true">
+									<h:graphicImage library="imagem" name="edit.png" alt="Editar"
+										title="Editar"/>
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{tipoAvaliacaoBean.remover(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
+							</div>
+						</div>
+					</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -18,12 +18,16 @@ public class TipoAvaliacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(length = 50, nullable = false)
 	private String nome;
+	
 	@Column(nullable = false)
 	private Integer prazo;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoAvaliacao")
 	private List<Criterio> criterio;
+	
 	@OneToOne
 	private Prova prova;
 

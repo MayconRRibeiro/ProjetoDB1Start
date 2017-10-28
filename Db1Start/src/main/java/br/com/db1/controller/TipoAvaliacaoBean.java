@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.TipoAvaliacaoDao;
-import br.com.db1.model.Avaliador;
+
 import br.com.db1.model.TipoAvaliacao;
 
 @ApplicationScoped
@@ -27,12 +27,16 @@ public class TipoAvaliacaoBean {
 	private String nomeTipoAvaliacaoFiltrado;
 
 	private TipoAvaliacao tipoAvaliacao;
-
+	
+	private Boolean mostrar;
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();
 		this.tipoAvaliacao = new TipoAvaliacao();
 		this.nomeTipoAvaliacaoFiltrado = "";
+		this.mostrar = false;
+		listarTipoAvaliacao();
 	}
 
 	private void zerarLista() {
@@ -73,7 +77,7 @@ public class TipoAvaliacaoBean {
 
 	public String novo() {
 		this.tipoAvaliacao = new TipoAvaliacao();
-		return "cadastrarTipoAvaliacao";
+		return "tipoAvaliacaoCadastro";
 	}
 
 	public String salvar() {
@@ -83,12 +87,14 @@ public class TipoAvaliacaoBean {
 			adicionarMensagem("TipoAvaliacao salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.tipoAvaliacao = new TipoAvaliacao();
 		}
-		return "listaTipos";
+		this.mostrar = false;
+		listarTipoAvaliacao();
+		return "tipoAvaliacaoCadastro";
 	}
 
 	public String editar(TipoAvaliacao tipoAvaliacao) {
 		this.tipoAvaliacao = dao.findById(tipoAvaliacao.getId());
-		return "cadastrarAvaliacao";
+		return "tipoAvaliacaoCadastro";
 	}
 
 	public String remover(TipoAvaliacao tipoAvaliacao) {
@@ -98,7 +104,8 @@ public class TipoAvaliacaoBean {
 			adicionarMensagem("TipoAvaliacao removido com sucesso.", FacesMessage.SEVERITY_INFO);
 			listarTipoAvaliacao();
 		}
-		return "tipoAvaliacao";
+		listarTipoAvaliacao();
+		return "tipoAvaliacaoCadastro";
 	}
 
 	public void listarTipoAvaliacao() {
@@ -116,6 +123,14 @@ public class TipoAvaliacaoBean {
 		fm.setSeverity(tipoMensagem);
 		fc.addMessage(null, fm);
 
+	}
+
+	public Boolean getMostrar() {
+		return mostrar;
+	}
+
+	public void setMostrar(Boolean mostrar) {
+		this.mostrar = mostrar;
 	}
 
 }
