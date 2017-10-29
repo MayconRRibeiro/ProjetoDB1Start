@@ -101,6 +101,7 @@ public class AvaliadorBean {
 
 	public String editar(Avaliador avaliador) {
 		this.avaliador = dao.findById(avaliador.getId());
+		this.mostrar = true;
 		return "avaliadorCadastro";
 	}
 

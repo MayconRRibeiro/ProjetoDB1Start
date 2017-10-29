@@ -23,29 +23,39 @@ public class Prova {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(length = 30)
 	private String pontosFortes;
+	
 	@Column(length = 30)
 	private String pontosFracos;
+	
 	@Column(length = 50)
 	private String parecer;
+	
 	@Column(nullable = false)
 	private Byte[] avaliacao;
+	
 	@Column(nullable = false, name = "data_avaliacao")
 	@Temporal(TemporalType.DATE)
 	private Date dataAvaliacao;
+	
 	@Column(name = "data_correcao")
 	@Temporal(TemporalType.DATE)
 	private Date dataCorrecao;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "candidato_id", nullable = false)
 	private Candidato candidato;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "avaliador_id", nullable = false)
 	private Avaliador avaliador;
+	
 	@OneToOne
 	@JoinColumn(name = "tipoAvaliacao_id", nullable = false)
 	private TipoAvaliacao tipoAvaliacao;
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "prova")
 	private List<ResultadoCriterio> resultadoCriterio;
 
