@@ -60,9 +60,8 @@
 										<h:outputLabel value="Data" for="campo-data" />
 										<br />
 										<h:inputText value="#{provaBean.prova.dataAvaliacao}"
-											id="campo-data" required="true" label="Data"
-											 maxlength="10" >
-											 <f:convertDateTime pattern="dd/MM/yyyy" />
+											id="campo-data" required="true" label="Data" maxlength="10">
+											<f:convertDateTime pattern="dd/MM/yyyy" />
 										</h:inputText>
 										<br />
 										<h:message for="campo-data" style="color:red" />
@@ -77,19 +76,19 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<h:commandButton value="Salvar"
-										action="#{provaBean.salvar}" class="btn btn-success" />
+									<h:commandButton value="Salvar" action="#{provaBean.salvar}"
+										class="btn btn-success" />
 									<h:commandButton value="close" class="btn btn-secondary"
-										data-dismiss="modal"
-										action="#{provaBean.setMostrar(false)}" immediate="true" />
+										data-dismiss="modal" action="#{provaBean.setMostrar(false)}"
+										immediate="true" />
 								</div>
 							</div>
 						</h:panelGroup>
 						<br />
 						<h:commandButton value="Incluir" class="btn btn-danger"
 							action="#{provaBean.setMostrar(true)}" />
-						<h:dataTable id="dataTable" value="#{provaBean.list}"
-							var="item" class="table table-bordered table-striped table-hover"
+						<h:dataTable id="dataTable" value="#{provaBean.list}" var="item"
+							class="table table-bordered table-striped table-hover"
 							width="100%" cellspacing="0">
 							<h:column>
 								<f:facet name="header">Id</f:facet>
@@ -110,11 +109,12 @@
 							<h:column>
 								<f:facet name="header">Data</f:facet>
 								<h:outputLabel value="#{item.dataAvaliacao}" />
+
 							</h:column>
 							<h:column>
 								<h:commandLink action="#{provaBean.download(item)}">
 									<h:graphicImage library="imagem" name="download.png"
-										alt="Download" title="Download" action="#{ProvaBean.download}"/>
+										alt="Download" title="Download" action="#{ProvaBean.download}" />
 								</h:commandLink>
 							</h:column>
 							<h:column>
