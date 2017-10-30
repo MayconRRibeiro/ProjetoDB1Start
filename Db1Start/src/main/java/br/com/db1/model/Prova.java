@@ -23,39 +23,45 @@ public class Prova {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(length = 30)
 	private String pontosFortes;
-	
+
 	@Column(length = 30)
 	private String pontosFracos;
-	
+
 	@Column(length = 50)
 	private String parecer;
-	
-	@Column(nullable = false)
-	private Byte[] avaliacao;
-	
+
+	@Column(nullable = true)
+	private byte[] avaliacao;
+
+	@Column(name = "nome", nullable = true, length = 50)
+	private String nomeArquivo;
+
+	@Column(name = "extensao", nullable = true, length = 10)
+	private String extensaoArquivo;
+
 	@Column(nullable = false, name = "data_avaliacao")
 	@Temporal(TemporalType.DATE)
 	private Date dataAvaliacao;
-	
+
 	@Column(name = "data_correcao")
 	@Temporal(TemporalType.DATE)
 	private Date dataCorrecao;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "candidato_id", nullable = false)
 	private Candidato candidato;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "avaliador_id", nullable = false)
 	private Avaliador avaliador;
-	
+
 	@OneToOne
 	@JoinColumn(name = "tipoAvaliacao_id", nullable = false)
 	private TipoAvaliacao tipoAvaliacao;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "prova")
 	private List<ResultadoCriterio> resultadoCriterio;
 
@@ -91,12 +97,28 @@ public class Prova {
 		this.parecer = parecer;
 	}
 
-	public Byte[] getAvaliacao() {
+	public byte[] getAvaliacao() {
 		return avaliacao;
 	}
 
-	public void setAvaliacao(Byte[] avaliacao) {
+	public void setAvaliacao(byte[] avaliacao) {
 		this.avaliacao = avaliacao;
+	}
+
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+
+	public void setNomeArquivo(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
+	}
+
+	public String getExtensaoArquivo() {
+		return extensaoArquivo;
+	}
+
+	public void setExtensaoArquivo(String extensaoArquivo) {
+		this.extensaoArquivo = extensaoArquivo;
 	}
 
 	public Date getDataAvaliacao() {
@@ -146,4 +168,5 @@ public class Prova {
 	public void setResultadoCriterio(List<ResultadoCriterio> resultadoCriterio) {
 		this.resultadoCriterio = resultadoCriterio;
 	}
+
 }

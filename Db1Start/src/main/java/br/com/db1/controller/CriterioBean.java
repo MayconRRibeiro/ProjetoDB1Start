@@ -11,7 +11,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.CriterioDao;
 import br.com.db1.model.Criterio;
 
@@ -26,14 +25,14 @@ public class CriterioBean {
 	private String nomeCriterioFiltrado;
 
 	private Criterio criterio;
-	
+
 	private Boolean mostrar;
-	
+
 	@Inject
 	public CriterioBean(CriterioDao dao) {
 		this.dao = dao;
 	}
-	
+
 	@PostConstruct
 	public void init() {
 		zerarLista();

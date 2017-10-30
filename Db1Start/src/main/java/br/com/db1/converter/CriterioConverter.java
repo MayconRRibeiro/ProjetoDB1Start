@@ -7,9 +7,9 @@ import javax.faces.convert.FacesConverter;
 
 import br.com.db1.model.Criterio;
 
-@FacesConverter(forClass = Criterio.class)
+@FacesConverter(forClass = Criterio.class,value="criterioConverter")
 public class CriterioConverter implements Converter {
-	
+
 	public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
 		if (value != null && !value.isEmpty()) {
 			return (Criterio) uiComponent.getAttributes().get(value);
