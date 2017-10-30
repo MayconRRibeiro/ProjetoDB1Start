@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.CandidatoDao;
 import br.com.db1.model.Avaliador;
 import br.com.db1.model.Candidato;
@@ -19,7 +20,6 @@ import br.com.db1.model.Candidato;
 @Named
 public class CandidatoBean {
 
-	@Inject
 	private CandidatoDao dao;
 
 	private List<Candidato> list;
@@ -30,6 +30,11 @@ public class CandidatoBean {
 	
 	private Boolean mostrar;
 
+	@Inject
+	public CandidatoBean(CandidatoDao dao) {
+		this.dao = dao;
+	}
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();

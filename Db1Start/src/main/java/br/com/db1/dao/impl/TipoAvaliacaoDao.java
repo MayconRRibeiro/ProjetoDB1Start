@@ -13,9 +13,14 @@ import br.com.db1.model.TipoAvaliacao;
 
 public class TipoAvaliacaoDao implements DAO<TipoAvaliacao> {
 
-	@Inject
+	
 	private EntityManager manager;
 
+	@Inject
+	public TipoAvaliacaoDao(EntityManager manager) {
+		this.manager = manager;
+	}
+	
 	public List<TipoAvaliacao> findAll() {
 		return manager.createQuery("Select t from TipoAvaliacao t").getResultList();
 	}

@@ -19,8 +19,7 @@ import br.com.db1.model.Avaliador;
 @Named
 public class AvaliadorBean {
 
-	@Inject
-	private AvaliadorDao dao;
+ 	private AvaliadorDao dao;
 
 	private List<Avaliador> list;
 
@@ -30,6 +29,11 @@ public class AvaliadorBean {
 
 	private Boolean mostrar;
 
+	@Inject
+	public AvaliadorBean(AvaliadorDao dao) {
+		this.dao = dao;
+	}
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();

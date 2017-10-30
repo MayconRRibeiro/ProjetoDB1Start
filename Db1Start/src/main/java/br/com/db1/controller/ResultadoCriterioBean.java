@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.ResultadoCriterioDao;
 import br.com.db1.model.Avaliador;
 import br.com.db1.model.ResultadoCriterio;
@@ -19,7 +20,6 @@ import br.com.db1.model.ResultadoCriterio;
 @Named
 public class ResultadoCriterioBean {
 
-	@Inject
 	private ResultadoCriterioDao dao;
 
 	private List<ResultadoCriterio> list;
@@ -30,6 +30,11 @@ public class ResultadoCriterioBean {
 	
 	private Boolean mostar;
 
+	@Inject
+	public ResultadoCriterioBean(ResultadoCriterioDao dao) {
+		this.dao = dao;
+	}
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();

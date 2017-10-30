@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.ProvaDao;
 import br.com.db1.model.Avaliador;
 import br.com.db1.model.Prova;
@@ -19,7 +20,6 @@ import br.com.db1.model.Prova;
 @Named
 public class ProvaBean {
 
-	@Inject
 	private ProvaDao dao;
 
 	private List<Prova> list;
@@ -28,6 +28,11 @@ public class ProvaBean {
 	
 	private Boolean mostrar;
 
+	@Inject
+	public ProvaBean(ProvaDao dao) {
+		this.dao = dao;
+	}
+	
 	@PostConstruct
 	public void init() {
 		zerarLista();

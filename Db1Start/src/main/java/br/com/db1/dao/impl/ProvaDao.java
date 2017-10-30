@@ -12,9 +12,14 @@ import br.com.db1.model.Prova;
 
 public class ProvaDao implements DAO<Prova> {
 
-	@Inject
+	
 	private EntityManager manager;
 
+	@Inject
+	public ProvaDao(EntityManager manager) {
+		this.manager = manager;
+	}
+	
 	public List<Prova> findAll() {
 		return manager.createQuery("Select p from Prova p").getResultList();
 	}

@@ -12,9 +12,14 @@ import br.com.db1.model.Criterio;
 
 public class CriterioDao implements DAO<Criterio> {
 
-	@Inject
+	
 	private EntityManager manager;
 
+	@Inject
+	public CriterioDao(EntityManager manager) {
+		this.manager = manager;
+	}
+	
 	public List<Criterio> findAll() {
 		return manager.createQuery("Select c from Criterio c").getResultList();
 	}

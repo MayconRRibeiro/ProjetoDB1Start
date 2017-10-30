@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.TipoAvaliacaoDao;
 
 import br.com.db1.model.TipoAvaliacao;
@@ -19,7 +20,6 @@ import br.com.db1.model.TipoAvaliacao;
 @Named
 public class TipoAvaliacaoBean {
 
-	@Inject
 	private TipoAvaliacaoDao dao;
 
 	private List<TipoAvaliacao> list;
@@ -29,6 +29,11 @@ public class TipoAvaliacaoBean {
 	private TipoAvaliacao tipoAvaliacao;
 	
 	private Boolean mostrar;
+	
+	@Inject
+	public TipoAvaliacaoBean(TipoAvaliacaoDao dao) {
+		this.dao = dao;
+	}
 	
 	@PostConstruct
 	public void init() {

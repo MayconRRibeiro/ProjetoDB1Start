@@ -12,9 +12,14 @@ import br.com.db1.model.Candidato;
 
 public class CandidatoDao implements DAO<Candidato> {
 
-	@Inject
+	
 	private EntityManager manager;
 
+	@Inject
+	public CandidatoDao(EntityManager manager) {
+		this.manager = manager;
+	}
+	
 	public List<Candidato> findAll() {
 		return manager.createQuery("Select c from Candidato c").getResultList();
 	}

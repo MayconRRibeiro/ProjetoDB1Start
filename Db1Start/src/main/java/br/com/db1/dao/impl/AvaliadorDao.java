@@ -12,9 +12,13 @@ import br.com.db1.model.Avaliador;
 
 public class AvaliadorDao implements DAO<Avaliador> {
 
-	@Inject
 	private EntityManager manager;
-
+	
+	@Inject
+	public AvaliadorDao(EntityManager manager) {
+		this.manager = manager;
+	}
+	
 	public List<Avaliador> findAll() {
 		return manager.createQuery("Select a from Avaliador a").getResultList();
 	}

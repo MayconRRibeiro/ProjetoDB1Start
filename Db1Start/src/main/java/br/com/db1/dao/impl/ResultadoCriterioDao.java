@@ -12,8 +12,12 @@ import br.com.db1.model.ResultadoCriterio;
 
 public class ResultadoCriterioDao implements DAO<ResultadoCriterio> {
 
-	@Inject
 	private EntityManager manager;
+
+	@Inject
+	public ResultadoCriterioDao(EntityManager manager) {
+		this.manager = manager;
+	}
 
 	public List<ResultadoCriterio> findAll() {
 		return manager.createQuery("Select r from ResultadoCriterio r").getResultList();
