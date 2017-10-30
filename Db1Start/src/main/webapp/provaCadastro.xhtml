@@ -61,7 +61,8 @@
 										<br />
 										<h:inputText value="#{provaBean.prova.dataAvaliacao}"
 											id="campo-data" required="true" label="Data"
-											 maxlength="50">
+											 maxlength="10" >
+											 <f:convertDateTime pattern="dd/MM/yyyy" />
 										</h:inputText>
 										<br />
 										<h:message for="campo-data" style="color:red" />
@@ -70,7 +71,7 @@
 										<h:outputLabel value="Arquivo" for="campo-arquivo" />
 										<br />
 										<h:inputFile id="campo-arquivo"
-											value="#{provaBean.prova.avaliacao}" required="true"
+											value="#{provaBean.arquivoUpado}" required="true"
 											label="Avaliacao" requiredMessage="Arquivo não selecionado!!" />
 										<h:message for="campo-arquivo" style="color:red" />
 									</div>
@@ -108,12 +109,12 @@
 							</h:column>
 							<h:column>
 								<f:facet name="header">Data</f:facet>
-								<h:outputLabel value="#{item.data}" />
+								<h:outputLabel value="#{item.dataAvaliacao}" />
 							</h:column>
 							<h:column>
 								<h:commandLink action="#{provaBean.download(item)}">
 									<h:graphicImage library="imagem" name="download.png"
-										alt="Download" title="Download" />
+										alt="Download" title="Download" action="#{ProvaBean.download}"/>
 								</h:commandLink>
 							</h:column>
 							<h:column>

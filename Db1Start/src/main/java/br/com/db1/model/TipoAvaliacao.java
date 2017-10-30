@@ -1,5 +1,6 @@
 package br.com.db1.model;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tipoAvaliacao", schema = "public")
-public class TipoAvaliacao {
+public class TipoAvaliacao implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

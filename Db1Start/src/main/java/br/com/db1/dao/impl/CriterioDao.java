@@ -31,7 +31,7 @@ public class CriterioDao implements DAO<Criterio> {
 	}
 
 	public List<Criterio> findByName(String nome) {
-		Query query = manager.createQuery("Select c from Criterio c where c.nome like :pNome");
+		Query query = manager.createQuery("Select c from Criterio c where c.descricao like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}

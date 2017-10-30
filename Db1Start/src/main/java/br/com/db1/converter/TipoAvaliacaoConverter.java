@@ -7,7 +7,7 @@ import javax.faces.convert.FacesConverter;
 
 import br.com.db1.model.TipoAvaliacao;
 
-@FacesConverter(forClass = TipoAvaliacao.class,value="tipoAvaliacaoConverter")
+@FacesConverter(forClass = TipoAvaliacao.class)
 public class TipoAvaliacaoConverter implements Converter {
 
 	public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
