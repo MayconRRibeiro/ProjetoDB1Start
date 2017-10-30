@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipoCriterio", schema = "public")
+@Table(name = "ResultadoCriterio", schema = "public")
 public class ResultadoCriterio {
 
 	@Id
