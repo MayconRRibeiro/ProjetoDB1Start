@@ -5,22 +5,22 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.com.db1.model.TipoAvaliacao;
+import br.com.db1.model.Avaliador;
 
-@FacesConverter(forClass = TipoAvaliacao.class)
-public class TipoAvaliacaoConverter implements Converter {
+@FacesConverter(forClass = Avaliador.class)
+public class AvaliadorConverter implements Converter {
 
 	public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String value) {
 		if (value != null && !value.isEmpty()) {
-			return (TipoAvaliacao) uiComponent.getAttributes().get(value);
+			return (Avaliador) uiComponent.getAttributes().get(value);
 		}
 		return null;
 	}
 
 	public String getAsString(FacesContext facesContext, UIComponent uiComponent, Object value) {
-		if (value instanceof TipoAvaliacao) {
-			TipoAvaliacao entity = (TipoAvaliacao) value;
-			if (entity != null && entity instanceof TipoAvaliacao && entity.getId() != null) {
+		if (value instanceof Avaliador) {
+			Avaliador entity = (Avaliador) value;
+			if (entity != null && entity instanceof Avaliador && entity.getId() != null) {
 				uiComponent.getAttributes().put(entity.getId().toString(), entity);
 				return entity.getId().toString();
 			}
