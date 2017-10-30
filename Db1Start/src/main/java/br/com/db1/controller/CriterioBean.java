@@ -12,7 +12,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.db1.dao.impl.CriterioDao;
-import br.com.db1.model.Avaliador;
 import br.com.db1.model.Criterio;
 
 @ApplicationScoped

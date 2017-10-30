@@ -1,13 +1,13 @@
 package br.com.db1.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -25,8 +25,10 @@ public class ControleDeAcesso implements Filter {
 			res.sendRedirect("../login.xhtml");
 		}
 	}
+
 	public void init(FilterConfig filterConfig) throws ServletException {
 	}
+
 	public void destroy() {
 	}
 }

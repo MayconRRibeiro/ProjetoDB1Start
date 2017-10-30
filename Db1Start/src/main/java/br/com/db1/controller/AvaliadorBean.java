@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.db1.dao.Transactional;
 import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.model.Avaliador;
 
@@ -22,13 +23,13 @@ public class AvaliadorBean {
 	private AvaliadorDao dao;
 
 	private List<Avaliador> list;
-	
+
 	private String nomeAvaliadorFiltrado;
 
 	private Avaliador avaliador;
 
 	private Boolean mostrar;
-	
+
 	@PostConstruct
 	public void init() {
 		zerarLista();
@@ -37,7 +38,7 @@ public class AvaliadorBean {
 		this.mostrar = false;
 		listarAvaliador();
 	}
-	
+
 	private void zerarLista() {
 		list = new ArrayList<Avaliador>();
 	}
@@ -93,7 +94,7 @@ public class AvaliadorBean {
 		} else {
 			adicionarMensagem("Avaliador salvo com sucesso.", FacesMessage.SEVERITY_INFO);
 			this.avaliador = new Avaliador();
-		}	
+		}
 		this.mostrar = false;
 		listarAvaliador();
 		return "avaliadorCadastro";
