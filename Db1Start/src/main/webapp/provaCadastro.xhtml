@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="menuRh.xhtml">
+	<ui:define name="corpo">
+		<h:form enctype="multipart/form-data">
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Provas
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<h:panelGroup rendered="#{provaBean.mostrar}">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="modalLabel">Cadastro de Provas</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<h:outputLabel value="TipoAvaliação" for="campo-avaliacao" />
+										<br />
+										<h:selectOneMenu id="campo-avaliacao"
+											value="#{provaBean.prova.tipoAvaliacao}" required="true"
+											requiredMessage="Valor é obrigatório">
+											<f:selectItem itemValue=""
+												itemLabel="Selecione tipo avaliação" />
+											<f:selectItems value="#{tipoAvaliacaoBean.list}" var="tipo"
+												itemLabel="#{tipo.nome}" itemValue="#{tipo}" />
+										</h:selectOneMenu>
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Candidato" for="campo-candidato" />
+										<br />
+										<h:selectOneMenu id="campo-candidato"
+											value="#{provaBean.prova.candidato}" required="true"
+											requiredMessage="Valor é obrigatório">
+											<f:selectItem itemValue="" itemLabel="Selecione Candidato" />
+											<f:selectItems value="#{candidatoBean.list}" var="candidato"
+												itemLabel="#{candidato.nome}" itemValue="#{candidato}" />
+										</h:selectOneMenu>
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Avaliador" for="campo-avaliador" />
+										<br />
+										<h:selectOneMenu id="campo-avaliador"
+											value="#{provaBean.prova.avaliador}" required="true"
+											requiredMessage="Valor é obrigatório">
+											<f:selectItem itemValue="" itemLabel="Selecione avaliador" />
+											<f:selectItems value="#{avaliadorBean.list}" var="avaliador"
+												itemLabel="#{avaliador.nome}" itemValue="#{avaliador}" />
+										</h:selectOneMenu>
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Data" for="campo-data" />
+										<br />
+										<h:inputText value="#{provaBean.prova.dataAvaliacao}"
+											id="campo-data" required="true" label="Data"
+											validatorMessage="Digite somente letras" maxlength="50">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
+										<br />
+										<h:message for="campo-data" style="color:red" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Arquivo" for="campo-arquivo" />
+										<br />
+										<h:inputFile id="campo-arquivo"
+											value="#{provaBean.prova.avaliacao}" required="true"
+											label="Avaliacao" requiredMessage="Arquivo não selecionado!!" />
+										<h:message for="campo-arquivo" style="color:red" />
+									</div>
+								</div>
+								<div class="modal-footer">
+									<h:commandButton value="Salvar"
+										action="#{provaBean.salvar}" class="btn btn-success" />
+									<h:commandButton value="close" class="btn btn-secondary"
+										data-dismiss="modal"
+										action="#{provaBean.setMostrar(false)}" immediate="true" />
+								</div>
+							</div>
+						</h:panelGroup>
+						<br />
+						<h:commandButton value="Incluir" class="btn btn-danger"
+							action="#{provaBean.setMostrar(true)}" />
+						<h:dataTable id="dataTable" value="#{provaBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">Id</f:facet>
+								<h:outputLabel value="#{item.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Candidato</f:facet>
+								<h:outputLabel value="#{item.candidato.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Tipo Avaliação</f:facet>
+								<h:outputLabel value="#{item.tipoAvaliacao.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Avaliador</f:facet>
+								<h:outputLabel value="#{item.avaliador.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Data</f:facet>
+								<h:outputLabel value="#{item.data}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{provaBean.download(item)}">
+									<h:graphicImage library="imagem" name="download.png"
+										alt="Download" title="Download" />
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{provaBean.remover(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

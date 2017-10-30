@@ -83,6 +83,7 @@ public class ProvaBean {
 
 	public String editar(Prova prova) {
 		this.prova = dao.findById(prova.getId());
+		this.mostrar = true;
 		return "provaCadastro";
 	}
 

@@ -103,7 +103,6 @@ public class CandidatoBean {
 			adicionarMensagem("Erro ao remover o candidato.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Candidato removido com sucesso.", FacesMessage.SEVERITY_INFO);
-			listarCandidato();
 		}
 		listarCandidato();
 		return "candidatoCadastro";
