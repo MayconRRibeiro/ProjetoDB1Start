@@ -88,7 +88,6 @@ public class CriterioBean {
 			adicionarMensagem("Erro ao cadastrar o criterio.", FacesMessage.SEVERITY_ERROR);
 		} else {
 			adicionarMensagem("Criterio salvo com sucesso.", FacesMessage.SEVERITY_INFO);
-			nomeCriterioFiltrado = this.criterio.getDescricao();
 			this.criterio = new Criterio();
 		}
 		this.mostrar = false;
