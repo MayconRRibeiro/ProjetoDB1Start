@@ -27,7 +27,10 @@
 										<h:outputLabel value="Nome:" for="campo-nome" />
 										<br />
 										<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.nome}"
-											id="campo-nome" required="true" label="Nome" maxlength="50" />
+											id="campo-nome" required="true" label="Nome" maxlength="50"
+											validatorMessage="Digite somente letras">
+											<f:validateRegex pattern="^[a-zA-Z-_ ]+$" />
+										</h:inputText>
 										<br />
 										<h:message for="campo-nome" style="color:red" />
 									</div>
@@ -36,7 +39,8 @@
 										<br />
 										<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.prazo}"
 											id="campo-prazo" required="true" label="Prazo"
-											converterMessage="Digite somente numeros" />
+											converterMessage="Digite somente numeros" maxlength="3" />
+
 										<br />
 										<h:message for="campo-prazo" style="color:red" />
 									</div>

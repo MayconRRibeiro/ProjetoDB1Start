@@ -97,6 +97,7 @@ public class CriterioBean {
 
 	public String editar(Criterio criterio) {
 		this.criterio = dao.findById(criterio.getId());
+		this.mostrar = true;
 		return "criterioCadastro";
 	}
 
