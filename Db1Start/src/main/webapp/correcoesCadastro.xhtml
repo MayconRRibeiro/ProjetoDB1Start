@@ -73,21 +73,13 @@
 											label="Parecer" />
 									</div>
 									<div class="form-group">
-										<h:outputLabel value="Criterios Esperados"
-											for="campo-criterios" />
+										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
-										<h:inputText id="campo-criterios"
-											value="Criterio #{resultadoCriterioBean.resultadoCriterio.criterio.descricao} -
-											       Obrigatorio #{resultadoCriterioBean.resultadoCriterio.criterio.obrigatorio}"
-											required="true" label="Criterios" />
-									</div>
-									<div class="form-group">
-										<h:outputLabel value="Criterios Cumpridos"
-											for="campo-criteriosCumpridos" />
-										<br />
-										<h:inputText id="campo-criteriosCumpridos"
-											value="#{resultadoCriterioBean.resultadoCriterio.resultado}"
-											required="true" label="Criterios Cumpridos" />
+										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
+											<h:outputText
+												value="#{criterio.descricao}" />
+											<h:inputText value="resultadoCriterioBean.resultado"/>	
+										</rich:list>
 									</div>
 								</div>
 								<div class="modal-footer">

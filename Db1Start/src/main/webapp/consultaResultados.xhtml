@@ -77,7 +77,7 @@
 									<div class="form-group">
 										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
-										<rich:list var="criterios" value="#{resultadoProvaBean.list}">
+										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
 											<h:outputText
 												value="#{criterio.descricao} - #{resultadoProvaBean.listarResultadoCriterio(criterios.id)}" />
 										</rich:list>
