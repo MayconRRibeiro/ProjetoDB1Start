@@ -14,7 +14,9 @@ import javax.inject.Named;
 import br.com.db1.dao.impl.AvaliadorDao;
 import br.com.db1.dao.impl.ProvaDao;
 import br.com.db1.model.Avaliador;
+import br.com.db1.model.Criterio;
 import br.com.db1.model.Prova;
+import br.com.db1.model.ResultadoCriterio;
 
 @ApplicationScoped
 @Named
@@ -23,6 +25,8 @@ public class ResultadoProvaBean {
 	private ProvaDao dao;
 
 	private List<Prova> list;
+	
+	private List<Criterio> list2;
 
 	private Prova prova;
 	
@@ -89,7 +93,7 @@ public class ResultadoProvaBean {
 	public String editar(Prova prova) {
 		this.prova = dao.findById(prova.getId());
 		this.mostrar = true;
-		return "provaCadastro";
+		return "consultaResultados";
 	}
 
 	public String remover(Prova prova) {
@@ -106,6 +110,16 @@ public class ResultadoProvaBean {
 		zerarLista();
 		list.addAll(dao.findAll());
 	}
+	
+	public void  listarCriterio() {
+		list2 = new ArrayList<Criterio>();
+		list2.addAll(dao.findCriterioByTipoAvaliacao(prova.getTipoAvaliacao().getId()));
+		this.mostrar = true;
+	}
+	
+	public ResultadoCriterio listarResultadoCriterio(Long criterio) {
+		return dao.findResultadoCriterio(prova.getId(), criterio);
+	}
 
 	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
 		FacesContext fc = FacesContext.getCurrentInstance();
@@ -121,6 +135,14 @@ public class ResultadoProvaBean {
 
 	public void setMostrar(Boolean mostrar) {
 		this.mostrar = mostrar;
+	}
+
+	public List<Criterio> getList2() {
+		return list2;
+	}
+
+	public void setList2(List<Criterio> list2) {
+		this.list2 = list2;
 	}
 
 }

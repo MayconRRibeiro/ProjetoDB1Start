@@ -1,39 +1,134 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html" lang="en"
-	template="menuAvaliador.xhtml">
-	<link rel="stylesheet" type="text/css" href="bootstrap2.css" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
 		<h:form>
-			<div class="jumbotron1 jumbotron1-fluid">
-				<div class="container">
-					<h1 class="display-3">Olá #{sessionScope.usuario}!</h1>
-					<p class="lead">Aqui você acompanha as suas notificações mais
-						recentes.</p>
-					<hr color="#FFF" />
-
-
-					<div class="list-group1">
-						<a href="#" class="list-group-item1 list-group-item-action1">
-							<h:graphicImage value="img/envelope.png" width="5%" /> Nova
-							correção recebida
-						</a> <a href="#" class="list-group-item1 list-group-item-action1">
-							<h:graphicImage value="img/envelope.png" width="5%" /> Nova
-							correção recebida
-						</a> <a href="#" class="list-group-item1 list-group-item-action1">
-							<h:graphicImage value="img/envelope.png" width="5%" /> Nova
-							correção recebida
-						</a> <a href="#" class="list-group-item1 list-group-item-action1">
-							<h:graphicImage value="img/envelope.png" width="5%" /> Nova
-							correção recebida
-						</a> <a href="#" class="list-group-item1 list-group-item-action1">
-							<h:graphicImage value="img/envelope.png" width="5%" /> Nova
-							correção recebida
-						</a>
+			<div class="card mb-3">
+				<div class="card-header">
+					<i class="fa fa-table"></i> Avaliadores
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<h:panelGroup rendered="#{resultadoProvaBean.mostrar}">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="modalLabel">Consulta
+										Resultados</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+										<h:outputLabel value="Candidato" for="campo-candidato" />
+										<br />
+										<h:inputText id="campo-candidato" disabled="true"
+											value="#{resultadoProvaBean.prova.candidato.nome}"
+											required="true" label="Candidato" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Avaliador" for="campo-avaliador" />
+										<br />
+										<h:inputText id="campo-avaliador" disabled="true"
+											value="#{resultadoProvaBean.prova.avaliador.nome}"
+											required="true" label="avaliador" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Tipo Avaliação" for="campo-tipoavaliacao" />
+										<br />
+										<h:inputText id="campo-tipoavaliacao" disabled="true"
+											value="#{resultadoProvaBean.prova.tipoavaliacao}"
+											required="true" label="Tipo Avaliacao" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Data Correção" for="campo-dataCorrecao" />
+										<br />
+										<h:inputText id="campo-dataCorrecao" disabled="true"
+											value="#{resultadoProvaBean.prova.dataCorrecao}"
+											required="true" label="Data Correção" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Pontos Forte" for="campo-pf1" />
+										<br />
+										<h:inputText id="campo-pf1" disabled="true"
+											value="#{resultadoProvaBean.prova.pontosForte}"
+											required="true" label="Pontos Forte" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Pontos Fracos" for="campo-pf2" />
+										<br />
+										<h:inputText id="campo-pf2" disabled="true"
+											value="#{resultadoProvaBean.prova.pontosFracos}"
+											required="true" label="Pontos Fraco" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Parecer" for="campo-parecer" />
+										<br />
+										<h:inputText id="campo-parecer" disabled="true"
+											value="#{resultadoProvaBean.prova.parecer}"
+											required="true" label="Parecer" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Criterios" for="campo-criterios" />
+										<br />
+										<h:inputText id="campo-criterios" disabled="true"
+											value="#{resultadoCriterioBean.resultadoCriterio.criterio.descricao} - 
+											       #{resultadoCriterioBean.resultadoCriterio.criterio.obrigatorio}"
+											required="true" label="Criterios" />
+									</div>
+									<div class="form-group">
+										<h:outputLabel value="Criterios Cumpridos" for="campo-criteriosCumpridos" />
+										<br />
+										<h:inputText id="campo-criteriosCumpridos" disabled="true"
+											value="#{resultadoCriterioBean.resultadoCriterio.resultado}"
+											required="true" label="Criterios Cumpridos" />
+									</div>
+								</div>
+								<div class="modal-footer">
+									<h:commandButton value="close" class="btn btn-secondary"
+										data-dismiss="modal" action="#{resultadoProvaBean.setMostrar(false)}"
+										immediate="true" />
+								</div>
+							</div>
+						</h:panelGroup>
+						<br />
+						<h:commandButton value="Incluir" class="btn btn-danger"
+							action="#{avaliadorBean.setMostrar(true)}" />
+						<h:dataTable id="dataTable" value="#{resultadoProvaBean.list}"
+							var="item" class="table table-bordered table-striped table-hover"
+							width="100%" cellspacing="0">
+							<h:column>
+								<f:facet name="header">Candidato</f:facet>
+								<h:outputLabel value="#{item.candidato.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Data Correção</f:facet>
+								<h:outputLabel value="#{item.dataCorrecao}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Tipo Avaliacao</f:facet>
+								<h:outputLabel value="#{item.tipoAvaliacao.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Avaliador</f:facet>
+								<h:outputLabel value="#{item.avaliador.nome}" />
+							</h:column>
+							<h:column>
+								<h:commandLink action="#{resultadoProvaBean.editar(item)}"
+									immediate="true">
+									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+										title="Remover" />
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
 					</div>
 				</div>
 			</div>
 		</h:form>
 	</ui:define>
 </ui:composition>
+</html>
