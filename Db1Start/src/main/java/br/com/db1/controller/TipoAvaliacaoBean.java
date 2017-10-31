@@ -99,6 +99,7 @@ public class TipoAvaliacaoBean {
 
 	public String editar(TipoAvaliacao tipoAvaliacao) {
 		this.tipoAvaliacao = dao.findById(tipoAvaliacao.getId());
+		this.mostrar = true;
 		return "tipoAvaliacaoCadastro";
 	}
 

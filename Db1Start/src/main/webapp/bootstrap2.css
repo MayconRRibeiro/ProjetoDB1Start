@@ -15125,3 +15125,8 @@ table {
 	margin-top: -13em !important;
 	margin-left: 15em !important;
 }
+
+
+.bg-back{
+	background: url(img/db1it.jpeg) !important;
+}

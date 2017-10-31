@@ -84,11 +84,11 @@
 											<div class="form-group">
 												<h:outputLabel value="Criterios" for="campo-criterios" />
 												<br />
-												<rich:list var="criterios"
-													value="#{resultadoProvaBean.list2}">
-													<h:outputText value="#{criterio.descricao}" />
-													<h:inputText value="resultadoCriterioBean.resultado" />
-												</rich:list>
+												<h:selectManyCheckbox value="#{resultadoProvaBean.list2}"
+													var="criterios">
+													<f:selectItems itemValue="criterios.id"
+														itemLabel="criterios.nome" />
+												</h:selectManyCheckbox>
 											</div>
 										</div>
 									</div>
