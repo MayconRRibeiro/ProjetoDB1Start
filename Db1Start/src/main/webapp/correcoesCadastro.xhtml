@@ -4,7 +4,7 @@
 	xmlns:rich="http://richfaces.org/rich"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<ui:composition template="menuRh.xhtml">
+<ui:composition template="menuAvaliador.xhtml">
 	<ui:define name="corpo">
 		<h:form>
 			<div class="card mb-3">
@@ -56,21 +56,21 @@
 									<div class="form-group">
 										<h:outputLabel value="Pontos Forte" for="campo-pf1" />
 										<br />
-										<h:inputText id="campo-pf1"
+										<h:inputTextarea id="campo-pf1"
 											value="#{resultadoProvaBean.prova.pontosFortes}"
 											required="true" label="Pontos Forte" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Pontos Fracos" for="campo-pf2" />
 										<br />
-										<h:inputText id="campo-pf2"
+										<h:inputTextarea id="campo-pf2"
 											value="#{resultadoProvaBean.prova.pontosFracos}"
 											required="true" label="Pontos Fraco" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Parecer" for="campo-parecer" />
 										<br />
-										<h:inputText id="campo-parecer"
+										<h:inputTextarea id="campo-parecer"
 											value="#{resultadoProvaBean.prova.parecer}" required="true"
 											label="Parecer" />
 									</div>

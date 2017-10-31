@@ -87,7 +87,7 @@ public class ResultadoProvaBean {
 		}
 		this.mostrar = false;
 		listarProva();
-		return "provaCadastro";
+		return "correcoesCadastro";
 	}
 
 	public String editar(Prova prova) {
