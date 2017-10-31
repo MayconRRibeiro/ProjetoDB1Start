@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="menuRh.xhtml">
@@ -19,20 +20,21 @@
 										aria-label="Close">
 										<span aria-hidden="true"></span>
 									</button>
-									<h4 class="modal-title" id="modalLabel">Correção de avaliações</h4>
+									<h4 class="modal-title" id="modalLabel">Correção de
+										avaliações</h4>
 								</div>
 								<div class="modal-body">
 									<div class="form-group">
 										<h:outputLabel value="Candidato" for="campo-candidato" />
 										<br />
-										<h:inputText id="campo-candidato"
+										<h:inputText id="campo-candidato" disabled="true"
 											value="#{resultadoProvaBean.prova.candidato.nome}"
 											required="true" label="Candidato" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Avaliador" for="campo-avaliador" />
 										<br />
-										<h:inputText id="campo-avaliador"
+										<h:inputText id="campo-avaliador" disabled="true"
 											value="#{resultadoProvaBean.prova.avaliador.nome}"
 											required="true" label="avaliador" />
 									</div>
@@ -40,8 +42,8 @@
 										<h:outputLabel value="Tipo Avaliação"
 											for="campo-tipoavaliacao" />
 										<br />
-										<h:inputText id="campo-tipoavaliacao"
-											value="#{resultadoProvaBean.prova.tipoAvaliacao}"
+										<h:inputText id="campo-tipoavaliacao" disabled="true"
+											value="#{resultadoProvaBean.prova.tipoAvaliacao.nome}"
 											required="true" label="Tipo Avaliacao" />
 									</div>
 									<div class="form-group">
@@ -76,9 +78,8 @@
 										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
 										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
-											<h:outputText
-												value="#{criterio.descricao}" />
-											<h:inputText value="resultadoCriterioBean.resultado"/>	
+											<h:outputText value="#{criterio.descricao}" />
+											<h:inputText value="resultadoCriterioBean.resultado" />
 										</rich:list>
 									</div>
 								</div>
@@ -115,7 +116,7 @@
 							<h:column>
 								<h:commandLink action="#{resultadoProvaBean.editar(item)}"
 									immediate="true">
-									<h:graphicImage library="imagem" name="trash.png" alt="Remover"
+									<h:graphicImage library="imagem" name="acessar.jpg" alt="Remover"
 										title="Remover" />
 								</h:commandLink>
 							</h:column>

@@ -118,6 +118,7 @@ public class ResultadoProvaBean {
 	}
 	
 	public ResultadoCriterio listarResultadoCriterio(Long criterio) {
+		listarCriterio();
 		return dao.findResultadoCriterio(prova.getId(), criterio);
 	}
 
