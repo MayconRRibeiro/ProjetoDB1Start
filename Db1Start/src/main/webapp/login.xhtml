@@ -9,11 +9,11 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" lang="en">
 <h:head>
-<title>Sistema de Avaliação DB1</title>
-<link rel="stylesheet" href="css/particles.css" />
-<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
-<link href="css/sb-admin.css" rel="stylesheet" />
-<link rel="shortcut icon" type="image/x-icon"
+	<title>Sistema de Avaliação DB1</title>
+	<link rel="stylesheet" href="css/particles.css" />
+	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+	<link href="css/sb-admin.css" rel="stylesheet" />
+	<link rel="shortcut icon" type="image/x-icon"
 		href="#{request.contextPath}/img/favicon.ico" />
 </h:head>
 <body>
@@ -24,22 +24,25 @@
 					<img src="img/logo-preto.png" width="45%" height="45%" />
 				</div>
 				<div>
-					<h:outputLabel value="Usuário" for="campo-usuario" />
+					<h:outputLabel value="Usuário" for="campo-email" />
 					<br />
 					<h:inputText class="form-control" required="true" label="Usuário"
 						pt:placeholder="Informe o usuário"
-						value="#{autenticacaoBean.usuario}" id="campo-usuario" />
+						value="#{autenticacaoBean.usuario.email}" id="campo-email" />
+					<h:message for="campo-email" style="color:red" />
+
 				</div>
 
 				<div>
 					<h:outputLabel value="Senha" for="campo-senha" />
 					<br />
 					<h:inputSecret class="form-control" required="true" label="Senha"
-						pt:placeholder="Informe a senha" value="#{autenticacaoBean.senha}"
-						id="campo-senha" />
+						pt:placeholder="Informe a senha"
+						value="#{autenticacaoBean.usuario.senha}" id="campo-senha" />
+					<h:message for="campo-senha" style="color:red" />
 				</div>
 				<h:commandButton value="Entrar" class="btn btn-danger btn-block"
-					action="#{autenticacaoBean.autentica}" />
+					action="#{autenticacaoBean.autenticar}" />
 
 			</h:form>
 		</div>

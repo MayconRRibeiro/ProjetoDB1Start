@@ -1,77 +1,72 @@
 package br.com.db1.controller;
+
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-
+import br.com.db1.dao.impl.UsuarioDao;
+import br.com.db1.model.Usuario;
 
 @ManagedBean
 public class AutenticacaoBean {
-	private static final String USUARIO_CORRETO = "admin";
-	private static final String SENHA_CORRETA = "admin";
 
-	private String usuario;
-	private String senha;
+	private UsuarioDao dao;
 
-	public String autentica() {
+	private Usuario usuario;
+
+	@Inject
+	public AutenticacaoBean(UsuarioDao dao) {
+		this.dao = dao;
+	}
+
+	@PostConstruct
+	public void init() {
+		usuario = new Usuario();
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public String autenticar() {
 		FacesContext fc = FacesContext.getCurrentInstance();
+		usuario = dao.autenticacao(usuario.getEmail(), usuario.getSenha());
+		if (usuario == null) {
+			fc.addMessage(null,
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", "Erro no Login!"));
+			return null;
+		}
 
-		if (USUARIO_CORRETO.equals(this.usuario) && SENHA_CORRETA.equals(this.senha)) {
+		if (usuario.getPrivilegio() == true) {
 			ExternalContext ec = fc.getExternalContext();
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("usuario", this.usuario);
-			return "rhHome";
+			return "/rhHome";
 
+		} else {
+			ExternalContext ec = fc.getExternalContext();
+			HttpSession session = (HttpSession) ec.getSession(false);
+			session.setAttribute("usuario", this.usuario);
+			return "/avaliadorHome";
 		}
-		
-		else {
-			FacesMessage fm = new FacesMessage("Usuário e/ou senha inválidos");
-			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
-		fc.addMessage(null, fm);
-
-			return "/login";
-
-		}
-
 	}
 
-	
 	public String registraSaida() {
+		usuario = new Usuario();
 		FacesContext fc = FacesContext.getCurrentInstance();
 		ExternalContext ec = fc.getExternalContext();
 		HttpSession session = (HttpSession) ec.getSession(false);
 		session.removeAttribute("usuario");
-		return "/redirect";
+
+		return "/login";
 	}
 
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-
-	}
-	
-	public static String getUsuarioCorreto() {
-		return USUARIO_CORRETO;
-	}
-
-
-	public static String getSenhaCorreta() {
-		return SENHA_CORRETA;
-	}
 }

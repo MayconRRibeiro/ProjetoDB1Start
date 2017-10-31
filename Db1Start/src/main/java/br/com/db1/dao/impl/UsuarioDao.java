@@ -14,30 +14,30 @@ import br.com.db1.model.Usuario;
 public class UsuarioDao implements DAO<Usuario> {
 
 	private EntityManager manager;
-	
+
 	@Inject
 	public UsuarioDao(EntityManager manager) {
 		this.manager = manager;
 	}
-	
+
 	public List<Usuario> findAll() {
-		return manager.createQuery("Select a from Usuario a").getResultList();
+		return manager.createQuery("Select u from Usuario u").getResultList();
 	}
 
 	public Usuario findById(Long id) {
-		Query query = manager.createQuery("Select a from Usuario a where a.id = :pId");
+		Query query = manager.createQuery("Select u from Usuario u where u.id = :pId");
 		query.setParameter("pId", id);
 		return (Usuario) query.getSingleResult();
 	}
 
 	public List<Usuario> findByName(String nome) {
-		Query query = manager.createQuery("Select a from Avaliador a where a.nome like :pNome");
+		Query query = manager.createQuery("Select u from Avaliador u where u.nome like :pNome");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
-	
+
 	public List<Avaliador> findByTipo(String tipo) {
-		Query query = manager.createQuery("Select a from Avaliador a where a.tipo like :pTipo");
+		Query query = manager.createQuery("Select u from Avaliador u where u.tipo like :pTipo");
 		query.setParameter("pTipo", "%" + tipo + "%");
 		return query.getResultList();
 	}
@@ -66,6 +66,13 @@ public class UsuarioDao implements DAO<Usuario> {
 		}
 		return true;
 
+	}
+
+	public Usuario autenticacao(String email, String senha) {
+		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail and u.senha = :pSenha");
+		query.setParameter("pEmail", email);
+		query.setParameter("pSenha", senha);
+		return (Usuario) query.getSingleResult();
 	}
 
 }
