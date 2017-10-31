@@ -95,6 +95,12 @@ public class ResultadoProvaBean {
 		this.mostrar = true;
 		return "consultaResultados";
 	}
+	
+	public String editar2(Prova prova) {
+		this.prova = dao.findById(prova.getId());
+		this.mostrar = true;
+		return "correcoesCadastro";
+	}
 
 	public String remover(Prova prova) {
 		if (!dao.delete(prova.getId())) {

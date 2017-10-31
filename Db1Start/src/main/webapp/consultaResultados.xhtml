@@ -4,7 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:rich="http://richfaces.org/rich">
 
-<ui:composition template="menuAvaliador.xhtml">
+<ui:composition template="menuRh.xhtml">
 	<ui:define name="corpo">
 		<h:form>
 			<div class="card mb-3">
@@ -77,10 +77,11 @@
 									<div class="form-group">
 										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
-										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
-											<h:outputText
-												value="#{criterio.descricao} - #{resultadoProvaBean.listarResultadoCriterio(criterios.id)}" />
-										</rich:list>
+										<ui:repeat value="#{resultadoProvaBean.list2}" var="criterios">
+											<h:outputText value="#{criterio.descricao}" /> -
+											<h:outputText value="#{resultadoProvaBean.listarResultadoCriterio(criterios.id)}" />
+											<br />
+										</ui:repeat>
 									</div>
 								</div>
 								<div class="modal-footer">
