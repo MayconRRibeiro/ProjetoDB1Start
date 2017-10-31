@@ -56,31 +56,32 @@
 									<div class="form-group">
 										<h:outputLabel value="Pontos Forte" for="campo-pf1" />
 										<br />
-										<h:inputText id="campo-pf1" disabled="true"
+										<h:inputTextarea id="campo-pf1" disabled="true"
 											value="#{resultadoProvaBean.prova.pontosFortes}"
 											required="true" label="Pontos Forte" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Pontos Fracos" for="campo-pf2" />
 										<br />
-										<h:inputText id="campo-pf2" disabled="true"
+										<h:inputTextarea id="campo-pf2" disabled="true"
 											value="#{resultadoProvaBean.prova.pontosFracos}"
 											required="true" label="Pontos Fraco" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Parecer" for="campo-parecer" />
 										<br />
-										<h:inputText id="campo-parecer" disabled="true"
+										<h:inputTextarea id="campo-parecer" disabled="true"
 											value="#{resultadoProvaBean.prova.parecer}" required="true"
 											label="Parecer" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
-										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
-											<h:outputText
-												value="#{criterio.descricao} - #{resultadoProvaBean.listarResultadoCriterio(criterios.id)}" />
-										</rich:list>
+										<ui:repeat value="#{resultadoProvaBean.list2}" var="criterios">
+											<h:outputText value="#{criterio.descricao}" /> -
+											<h:outputText value="#{resultadoProvaBean.listarResultadoCriterio(criterios.id)}" />
+											<br />
+										</ui:repeat>
 									</div>
 								</div>
 								<div class="modal-footer">

@@ -87,13 +87,19 @@ public class ResultadoProvaBean {
 		}
 		this.mostrar = false;
 		listarProva();
-		return "provaCadastro";
+		return "correcoesCadastro";
 	}
 
 	public String editar(Prova prova) {
 		this.prova = dao.findById(prova.getId());
 		this.mostrar = true;
 		return "consultaResultados";
+	}
+	
+	public String editar2(Prova prova) {
+		this.prova = dao.findById(prova.getId());
+		this.mostrar = true;
+		return "correcoesCadastro";
 	}
 
 	public String remover(Prova prova) {

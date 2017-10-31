@@ -1,7 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:rich="http://richfaces.org/rich"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="menuAvaliador.xhtml">
@@ -9,7 +8,7 @@
 		<h:form>
 			<div class="card mb-3">
 				<div class="card-header">
-					<i class="fa fa-table"></i> Avaliações
+					<i class="fa fa-table"></i> Correções
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -56,34 +55,37 @@
 									<div class="form-group">
 										<h:outputLabel value="Pontos Forte" for="campo-pf1" />
 										<br />
-										<h:inputText id="campo-pf1"
+										<h:inputTextarea id="campo-pf1"
 											value="#{resultadoProvaBean.prova.pontosFortes}"
 											required="true" label="Pontos Forte" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Pontos Fracos" for="campo-pf2" />
 										<br />
-										<h:inputText id="campo-pf2"
+										<h:inputTextarea id="campo-pf2"
 											value="#{resultadoProvaBean.prova.pontosFracos}"
 											required="true" label="Pontos Fraco" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Parecer" for="campo-parecer" />
 										<br />
-										<h:inputText id="campo-parecer"
+										<h:inputTextarea id="campo-parecer"
 											value="#{resultadoProvaBean.prova.parecer}" required="true"
 											label="Parecer" />
 									</div>
 									<div class="form-group">
 										<h:outputLabel value="Criterios" for="campo-criterios" />
 										<br />
-										<rich:list var="criterios" value="#{resultadoProvaBean.list2}">
-											<h:outputText value="#{criterio.descricao}" />
-											<h:inputText value="resultadoCriterioBean.resultado" />
-										</rich:list>
+										<ui:repeat value="##{resultadoProvaBean.list2}" var="criterios">
+											<h:outputText value="#{criterio.descricao}" /> -
+											<h:inputText value="#{resultadoCriterioBean.resultadoCriterio.resultado}" />
+											<br />
+										</ui:repeat>
 									</div>
 								</div>
 								<div class="modal-footer">
+									<h:commandButton value="Salvar"
+										action="#{resultadoProvaBean.salvar}" class="btn btn-success" />
 									<h:commandButton value="close" class="btn btn-secondary"
 										data-dismiss="modal"
 										action="#{resultadoProvaBean.setMostrar(false)}"
@@ -114,10 +116,10 @@
 								<h:outputLabel value="#{item.avaliador.nome}" />
 							</h:column>
 							<h:column>
-								<h:commandLink action="#{resultadoProvaBean.editar(item)}"
+								<h:commandLink action="#{resultadoProvaBean.editar2(item)}"
 									immediate="true">
-									<h:graphicImage library="imagem" name="acessar.jpg" alt="Remover"
-										title="Remover" />
+									<h:graphicImage library="imagem" name="acessar.jpg"
+										alt="Remover" title="Remover" />
 								</h:commandLink>
 							</h:column>
 						</h:dataTable>
