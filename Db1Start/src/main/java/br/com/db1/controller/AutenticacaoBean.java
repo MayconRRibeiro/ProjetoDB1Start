@@ -1,27 +1,26 @@
 package br.com.db1.controller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
 import br.com.db1.dao.impl.UsuarioDao;
 import br.com.db1.model.Usuario;
 
-@ManagedBean
+@RequestScoped
+@Named
 public class AutenticacaoBean {
 
+	@Inject
 	private UsuarioDao dao;
 
 	private Usuario usuario;
-
-	@Inject
-	public AutenticacaoBean(UsuarioDao dao) {
-		this.dao = dao;
-	}
 
 	@PostConstruct
 	public void init() {
@@ -44,18 +43,17 @@ public class AutenticacaoBean {
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!", "Erro no Login!"));
 			return null;
 		}
-
-		if (usuario.getPrivilegio() == true) {
+		if (usuario.getPrivilegio()) {
 			ExternalContext ec = fc.getExternalContext();
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("usuario", this.usuario);
-			return "/rhHome";
+			return "/provaCadastro";
 
 		} else {
 			ExternalContext ec = fc.getExternalContext();
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("usuario", this.usuario);
-			return "/avaliadorHome";
+			return "/correcoesCadastro";
 		}
 	}
 
@@ -67,6 +65,14 @@ public class AutenticacaoBean {
 		session.removeAttribute("usuario");
 
 		return "/login";
+	}
+
+	public void adicionarMensagem(String mensagem, Severity tipoMensagem) {
+		FacesContext fc = FacesContext.getCurrentInstance();
+		FacesMessage fm = new FacesMessage(mensagem);
+		fm.setSeverity(tipoMensagem);
+		fc.addMessage(null, fm);
+
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.com.db1.dao.DAO;
@@ -31,15 +32,21 @@ public class UsuarioDao implements DAO<Usuario> {
 	}
 
 	public List<Usuario> findByName(String nome) {
-		Query query = manager.createQuery("Select u from Avaliador u where u.nome like :pNome");
+		Query query = manager.createQuery("Select u from Usuario u where lower(u.nome) like lower(:pNome)");
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
 
-	public List<Avaliador> findByTipo(String tipo) {
-		Query query = manager.createQuery("Select u from Avaliador u where u.tipo like :pTipo");
-		query.setParameter("pTipo", "%" + tipo + "%");
-		return query.getResultList();
+	public Usuario findByEmail(String email) {
+		try {
+			Query query = manager.createQuery("Select u from Usuario u where lower(u.email) like lower(:pEmail)");
+			query.setParameter("pEmail", email);
+			return (Usuario) query.getSingleResult();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		return null;
+
 	}
 
 	@Transactional
@@ -69,10 +76,16 @@ public class UsuarioDao implements DAO<Usuario> {
 	}
 
 	public Usuario autenticacao(String email, String senha) {
-		Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail and u.senha = :pSenha");
-		query.setParameter("pEmail", email);
-		query.setParameter("pSenha", senha);
-		return (Usuario) query.getSingleResult();
+		try {
+			Query query = manager.createQuery("Select u from Usuario u where u.email = :pEmail and u.senha = :pSenha");
+			query.setParameter("pEmail", email);
+			query.setParameter("pSenha", senha);
+			return (Usuario) query.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+
+		}
+
 	}
 
 }

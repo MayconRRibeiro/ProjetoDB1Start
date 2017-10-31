@@ -12,12 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 public class ControleDeAcesso implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
+
 		if (session.getAttribute("usuario") != null || req.getRequestURI().endsWith("login.xhtml")) {
 			chain.doFilter(request, response);
 		} else {
@@ -27,8 +30,11 @@ public class ControleDeAcesso implements Filter {
 	}
 
 	public void init(FilterConfig filterConfig) throws ServletException {
+
 	}
 
 	public void destroy() {
+
 	}
+
 }
