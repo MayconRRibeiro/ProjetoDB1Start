@@ -35,7 +35,7 @@
 										<h:message for="campo-nome" style="color:red" />
 									</div>
 									<div class="form-group">
-										<h:outputLabel value="Prazo" for="campo-prazo" />
+										<h:outputLabel value="Prazo:" for="campo-prazo" />
 										<br />
 										<h:inputText value="#{tipoAvaliacaoBean.tipoAvaliacao.prazo}"
 											id="campo-prazo" required="true" label="Prazo"
@@ -48,7 +48,7 @@
 								<div class="modal-footer">
 									<h:commandButton value="Salvar"
 										action="#{tipoAvaliacaoBean.salvar}" class="btn btn-success" />
-									<h:commandButton value="close" class="btn btn-secondary"
+									<h:commandButton value="Cancelar" class="btn btn-secondary"
 										data-dismiss="modal"
 										action="#{tipoAvaliacaoBean.setMostrar(false)}"
 										immediate="true" />

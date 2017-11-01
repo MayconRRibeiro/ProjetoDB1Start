@@ -27,7 +27,7 @@
 									<div class="esq">
 										<div class="form-group">
 
-											<h:outputLabel value="Candidato" for="campo-candidato" />
+											<h:outputLabel value="Candidato:" for="campo-candidato" />
 											<br />
 											<h:inputText id="campo-candidato" disabled="true"
 												value="#{resultadoProvaBean.prova.candidato.nome}"
@@ -36,14 +36,14 @@
 										</div>
 
 										<div class="form-group">
-											<h:outputLabel value="Avaliador" for="campo-avaliador" />
+											<h:outputLabel value="Avaliador:" for="campo-avaliador" />
 											<br />
 											<h:inputText id="campo-avaliador" disabled="true"
 												value="#{resultadoProvaBean.prova.avaliador.nome}"
 												required="true" label="avaliador" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Tipo Avaliação"
+											<h:outputLabel value="Tipo Avaliação:"
 												for="campo-tipoavaliacao" />
 											<br />
 											<h:inputText id="campo-tipoavaliacao" disabled="true"
@@ -53,21 +53,21 @@
 									</div>
 									<div class="dir">
 										<div class="form-group ">
-											<h:outputLabel value="Data Correção" for="campo-dataCorrecao" />
+											<h:outputLabel value="Data Correção:" for="campo-dataCorrecao" />
 											<br />
 											<h:inputText id="campo-dataCorrecao"
 												value="#{resultadoProvaBean.prova.dataCorrecao}"
 												required="true" label="Data Correção" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Pontos Forte" for="campo-pf1" />
+											<h:outputLabel value="Pontos Fortes:" for="campo-pf1" />
 											<br />
 											<h:inputTextarea id="campo-pf1"
 												value="#{resultadoProvaBean.prova.pontosFortes}"
 												required="true" label="Pontos Forte" />
 										</div>
 										<div class="form-group">
-											<h:outputLabel value="Pontos Fracos" for="campo-pf2" />
+											<h:outputLabel value="Pontos Fracos:" for="campo-pf2" />
 											<br />
 											<h:inputTextarea id="campo-pf2"
 												value="#{resultadoProvaBean.prova.pontosFracos}"
@@ -75,14 +75,14 @@
 										</div>
 										<div class="outro-dir">
 											<div class="form-group">
-												<h:outputLabel value="Parecer" for="campo-parecer" />
+												<h:outputLabel value="Parecer:" for="campo-parecer" />
 												<br />
 												<h:inputTextarea id="campo-parecer"
 													value="#{resultadoProvaBean.prova.parecer}" required="true"
 													label="Parecer" />
 											</div>
 											<div class="form-group">
-												<h:outputLabel value="Criterios" for="campo-criterios" />
+												<h:outputLabel value="Critérios:" for="campo-criterios" />
 												<br />
 												<h:selectManyCheckbox value="#{resultadoProvaBean.list2}"
 													var="criterios">
@@ -100,7 +100,7 @@
 										action="#{resultadoProvaBean.salvar}" class="btn btn-success" />
 
 
-									<h:commandButton value="close" class="btn btn-secondary"
+									<h:commandButton value="Cancelar" class="btn btn-secondary"
 										data-dismiss="modal"
 										action="#{resultadoProvaBean.setMostrar(false)}"
 										immediate="true" />
