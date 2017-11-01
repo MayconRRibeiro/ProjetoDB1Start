@@ -35,6 +35,12 @@ public class CriterioDao implements DAO<Criterio> {
 		query.setParameter("pNome", "%" + nome + "%");
 		return query.getResultList();
 	}
+	
+	public List<Criterio> findByTipoAvaliacao(String tipo) {
+		Query query = manager.createQuery("Select c from Criterio c where c.tipoAvaliacao_id like :pTipo");
+		query.setParameter("pTipo", "%" + tipo + "%");
+		return query.getResultList();
+	}
 
 	@Transactional
 	public boolean save(Criterio criterio) {

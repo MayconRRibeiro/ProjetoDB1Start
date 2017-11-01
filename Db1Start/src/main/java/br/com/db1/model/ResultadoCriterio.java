@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ResultadoCriterio", schema = "public")
+@Table(name = "resultadoCriterio", schema = "public")
 public class ResultadoCriterio {
 
 	@Id
@@ -19,7 +19,7 @@ public class ResultadoCriterio {
 	private Long id;
 
 	@Column
-	private String resultado;
+	private Boolean resultado;
 
 	@OneToOne(targetEntity = Criterio.class)
 	@JoinColumn(name = "criterio_id", nullable = false)
@@ -37,11 +37,11 @@ public class ResultadoCriterio {
 		this.id = id;
 	}
 
-	public String getResultado() {
+	public Boolean getResultado() {
 		return resultado;
 	}
 
-	public void setResultado(String resultado) {
+	public void setResultado(Boolean resultado) {
 		this.resultado = resultado;
 	}
 

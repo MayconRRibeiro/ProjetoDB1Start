@@ -24,15 +24,6 @@ public class Prova {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 30)
-	private String pontosFortes;
-
-	@Column(length = 30)
-	private String pontosFracos;
-
-	@Column(length = 50)
-	private String parecer;
-
 	@Column(nullable = true)
 	private byte[] avaliacao;
 
@@ -45,10 +36,6 @@ public class Prova {
 	@Column(nullable = false, name = "data_avaliacao")
 	@Temporal(TemporalType.DATE)
 	private Date dataAvaliacao;
-
-	@Column(name = "data_correcao")
-	@Temporal(TemporalType.DATE)
-	private Date dataCorrecao;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "candidato_id", nullable = false)
@@ -64,6 +51,9 @@ public class Prova {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "prova")
 	private List<ResultadoCriterio> resultadoCriterio;
+	
+	@OneToOne
+	private ResultadoProva resultadoProva;
 
 	public Long getId() {
 		return id;
@@ -71,30 +61,6 @@ public class Prova {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getPontosFortes() {
-		return pontosFortes;
-	}
-
-	public void setPontosFortes(String pontosFortes) {
-		this.pontosFortes = pontosFortes;
-	}
-
-	public String getPontosFracos() {
-		return pontosFracos;
-	}
-
-	public void setPontosFracos(String pontosFracos) {
-		this.pontosFracos = pontosFracos;
-	}
-
-	public String getParecer() {
-		return parecer;
-	}
-
-	public void setParecer(String parecer) {
-		this.parecer = parecer;
 	}
 
 	public byte[] getAvaliacao() {
@@ -129,14 +95,6 @@ public class Prova {
 		this.dataAvaliacao = dataAvaliacao;
 	}
 
-	public Date getDataCorrecao() {
-		return dataCorrecao;
-	}
-
-	public void setDataCorrecao(Date dataCorrecao) {
-		this.dataCorrecao = dataCorrecao;
-	}
-
 	public Candidato getCandidato() {
 		return candidato;
 	}
@@ -169,4 +127,13 @@ public class Prova {
 		this.resultadoCriterio = resultadoCriterio;
 	}
 
+	public ResultadoProva getResultadoProva() {
+		return resultadoProva;
+	}
+
+	public void setResultadoProva(ResultadoProva resultadoProva) {
+		this.resultadoProva = resultadoProva;
+	}
+
+	
 }

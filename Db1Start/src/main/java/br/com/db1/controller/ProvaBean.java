@@ -140,6 +140,18 @@ public class ProvaBean {
 		this.mostrar = true;
 		return "provaCadastro";
 	}
+	
+	public String listarResultados(Prova prova) {
+		this.prova = dao.findById(prova.getId());
+		this.mostrar = true;
+		return "consultaResultados";
+	}
+	
+	public String editarCorreções(Prova prova) {
+		this.prova = dao.findById(prova.getId());
+		this.mostrar = true;
+		return "correcoesCadastro";
+	}
 
 	public String remover(Prova prova) {
 		if (!dao.delete(prova.getId())) {
