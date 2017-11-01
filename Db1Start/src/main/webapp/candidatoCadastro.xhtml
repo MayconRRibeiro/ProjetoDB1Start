@@ -24,7 +24,7 @@
 								</div>
 								<div class="modal-body">
 									<div class="form-group">
-										<h:outputLabel value="Nome" for="campo-nome" />
+										<h:outputLabel value="Nome:" for="campo-nome" />
 										<br />
 										<h:inputText value="#{candidatoBean.candidato.nome}"
 											id="campo-nome" required="true" label="Nome"
@@ -36,7 +36,7 @@
 									</div>
 
 									<div class="form-group">
-										<h:outputLabel value="Email" for="campo-email" />
+										<h:outputLabel value="E-mail:" for="campo-email" />
 										<br />
 										<h:inputText value="#{candidatoBean.candidato.email}"
 											id="campo-email" required="true" label="Email" maxlength="40" />
@@ -44,7 +44,7 @@
 										<h:message for="campo-email" style="color:red" />
 									</div>
 									<div class="form-group">
-										<h:outputLabel value="Telefone" for="campo-telefone" />
+										<h:outputLabel value="Telefone:" for="campo-telefone" />
 										<br />
 										<h:inputText value="#{candidatoBean.candidato.celular}"
 											id="campo-telefone" required="true" label="Telefone" maxlength="10"/>
@@ -52,7 +52,7 @@
 										<h:message for="campo-telefone" style="color:red" />
 									</div>
 									<div class="form-group">
-										<h:outputLabel value="Linkedin" for="campo-linkedin" />
+										<h:outputLabel value="Linkedin:" for="campo-linkedin" />
 										<br />
 										<h:inputText value="#{candidatoBean.candidato.linkedin}"
 											id="campo-linkedin" required="true" label="Email"
@@ -62,7 +62,7 @@
 									</div>
 
 									<div class="form-group">
-										<h:outputLabel value="Obs" for="campo-obs" />
+										<h:outputLabel value="Obs:" for="campo-obs" />
 										<br />
 										<h:inputText value="#{candidatoBean.candidato.obs}"
 											id="campo-obs" required="true" label="Obs" maxlength="50" />
@@ -73,7 +73,7 @@
 								<div class="modal-footer">
 									<h:commandButton value="Salvar"
 										action="#{candidatoBean.salvar}" class="btn btn-success" />
-									<h:commandButton value="close" class="btn btn-secondary"
+									<h:commandButton value="Cancelar" class="btn btn-secondary"
 										data-dismiss="modal"
 										action="#{candidatoBean.setMostrar(false)}" immediate="true" />
 								</div>

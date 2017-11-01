@@ -8,7 +8,7 @@
 		<h:form>
 			<div class="card mb-3">
 				<div class="card-header">
-					<i class="fa fa-table"></i> Criterios
+					<i class="fa fa-table"></i> Critérios
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
@@ -19,12 +19,12 @@
 										aria-label="Close">
 										<span aria-hidden="true"></span>
 									</button>
-									<h4 class="modal-title" id="modalLabel">Cadastro De
-										Criterios</h4>
+									<h4 class="modal-title" id="modalLabel">Cadastro de
+										Critérios</h4>
 								</div>
 								<div class="modal-body">
 									<div class="form-group">
-										<h:outputLabel value="Criterio" for="campo-descricao" />
+										<h:outputLabel value="Critério:" for="campo-descricao" />
 										<br />
 										<h:inputText value="#{criterioBean.criterio.descricao}"
 											id="campo-descricao" required="true" label="Nome"
@@ -34,7 +34,7 @@
 									</div>
 
 									<div class="form-group">
-										<h:outputLabel value="Obrigatorio?" for="campo-obrigatorio" />
+										<h:outputLabel value="Obrigatório ?" for="campo-obrigatorio" />
 										<br />
 										<h:selectOneMenu id="campo-obrigatorio"
 											value="#{criterioBean.criterio.obrigatorio}">
@@ -44,7 +44,7 @@
 									</div>
 
 									<div class="form-group">
-										<h:outputLabel value="TipoAvaliação" for="campo-avaliacao" />
+										<h:outputLabel value="Tipo Avaliação:" for="campo-avaliacao" />
 										<br />
 										<h:selectOneMenu id="campo-avaliacao"
 											value="#{criterioBean.criterio.tipoAvaliacao}"
@@ -60,7 +60,7 @@
 								<div class="modal-footer">
 									<h:commandButton value="Salvar" action="#{criterioBean.salvar}"
 										class="btn btn-success" />
-									<h:commandButton value="close" class="btn btn-secondary"
+									<h:commandButton value="Cancelar" class="btn btn-secondary"
 										data-dismiss="modal"
 										action="#{criterioBean.setMostrar(false)}" immediate="true" />
 								</div>
